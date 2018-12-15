@@ -1,0 +1,16 @@
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Data.deps.json
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Data.runtimeconfig.json
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Data.runtimeconfig.dev.json
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Data.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Data.pdb
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Models.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Cookery.Models.pdb
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.csprojAssemblyReference.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.csproj.CoreCompileInputs.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.AssemblyInfoInputs.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.AssemblyInfo.cs
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.csproj.CopyComplete
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Data\obj\Debug\netcoreapp2.2\Cookery.Data.pdb
