@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookery", "Cookery\Cookery.csproj", "{4D3559AC-C0A9-4A20-B62D-95DB1AC62A8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookery.Web", "Cookery\Cookery.Web.csproj", "{4D3559AC-C0A9-4A20-B62D-95DB1AC62A8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookery.Models", "Cookery.Models\Cookery.Models.csproj", "{9156FCDD-C33C-49C7-AF29-4C8EE217F186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookery.Models", "Cookery.Models\Cookery.Models.csproj", "{9156FCDD-C33C-49C7-AF29-4C8EE217F186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookery.Data", "Cookery.Data\Cookery.Data.csproj", "{0260BEDE-BFB5-4176-BB5E-9199A4FDA46E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9156FCDD-C33C-49C7-AF29-4C8EE217F186}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9156FCDD-C33C-49C7-AF29-4C8EE217F186}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9156FCDD-C33C-49C7-AF29-4C8EE217F186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0260BEDE-BFB5-4176-BB5E-9199A4FDA46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0260BEDE-BFB5-4176-BB5E-9199A4FDA46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0260BEDE-BFB5-4176-BB5E-9199A4FDA46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0260BEDE-BFB5-4176-BB5E-9199A4FDA46E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

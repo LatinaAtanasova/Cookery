@@ -12,7 +12,7 @@ namespace Cookery.Models
     {
         public Recipe()
         {
-            this.Products = new HashSet<Product>();
+            this.Products = new HashSet<RecipeProduct>();
         }
 
         public int Id { get; set; } 
@@ -34,7 +34,7 @@ namespace Cookery.Models
         public virtual CookeryUser CookeryUser { get; set; }
 
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<RecipeProduct> Products { get; set; }
 
     }
 }

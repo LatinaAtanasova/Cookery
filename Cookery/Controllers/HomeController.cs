@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cookery.Models;
 
-namespace Cookery.Controllers
+namespace Cookery.Web.Controllers
 {
     public class HomeController : Controller
     {

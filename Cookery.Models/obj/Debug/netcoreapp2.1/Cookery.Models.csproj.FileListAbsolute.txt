@@ -10,3 +10,15 @@ F:\Latina DOCs\CSharp\ASP.NET Core\Cookery Project\Cookery\Cookery.Models\obj\De
 F:\Latina DOCs\CSharp\ASP.NET Core\Cookery Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.csproj.CopyComplete
 F:\Latina DOCs\CSharp\ASP.NET Core\Cookery Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.dll
 F:\Latina DOCs\CSharp\ASP.NET Core\Cookery Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.pdb
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\bin\Debug\netcoreapp2.1\Cookery.Models.deps.json
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\bin\Debug\netcoreapp2.1\Cookery.Models.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\bin\Debug\netcoreapp2.1\Cookery.Models.pdb
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.csprojAssemblyReference.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.csproj.CoreCompileInputs.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.AssemblyInfoInputs.cache
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.AssemblyInfo.cs
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.csproj.CopyComplete
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.dll
+F:\Latina DOCs\CSharp\ASP.NET Core\Cookery_Project\Cookery\Cookery.Models\obj\Debug\netcoreapp2.1\Cookery.Models.pdb
