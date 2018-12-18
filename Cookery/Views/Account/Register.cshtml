@@ -1,0 +1,95 @@
+﻿@model Cookery.Web.Models.Account.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+<title>@ViewData["Title"]</title>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 center no-padding">
+
+                <form method="post" asp-controller="Account" asp-action="Register" class="form-transparent-grey">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Register New Account</h3>
+                            <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+                        </div>
+
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="FirstName" class="sr-only">First Name</label>
+                            <input asp-for="FirstName" type="text" value="" placeholder="First Name" class="form-control">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="LastName" class="sr-only">Last Name</label>
+                            <input asp-for="LastName" type="text" value="" placeholder="Last Name" class="form-control">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Username" class="sr-only">Username</label>
+                            <input asp-for="Username" type="text" value="" placeholder="Username" class="form-control">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Password" class="sr-only">Password</label>
+                            <input asp-for="Password" type="password" value="" placeholder="Password" class="form-control">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="ConfirmPassword" class="sr-only">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" value="" placeholder="Confirm Password" class="form-control">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Email" class="sr-only">E-mail</label>
+                            <input asp-for="Email" type="text" value="" placeholder="E-mail" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <p>Please choose one of the following:</p>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                    <label class="form-check-label" for="male" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                          font-size: 1em;
+                                                                                          font-style: normal;
+                                                                                          font-weight: 400;
+                                                                                          text-transform: none;
+                                                                                          line-height: 1.6;
+                                                                                          letter-spacing: 0;
+                                                                                          color: #646464">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                    <label class="form-check-label" for="female" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                            font-size: 1em;
+                                                                                            font-style: normal;
+                                                                                            font-weight: 400;
+                                                                                            text-transform: none;
+                                                                                            line-height: 1.6;
+                                                                                            letter-spacing: 0;
+                                                                                            color: #646464">
+                                        Female
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <button class="btn" type="submit">Register New Account </button>
+                            <button type="reset" class="btn btn-danger m-l-10">Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>

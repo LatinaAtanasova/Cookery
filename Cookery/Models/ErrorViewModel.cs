@@ -1,6 +1,6 @@
 using System;
 
-namespace Cookery.Models
+namespace Cookery.Web.Models
 {
     public class ErrorViewModel
     {

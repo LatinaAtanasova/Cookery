@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cookery.Data;
 using Cookery.Models;
+using Cookery.Web.Middlewares.MiddlewareExtensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNet.Identity;
@@ -48,12 +49,17 @@ namespace Cookery.Web
                     opt.Password.RequireUppercase = false;
                     opt.Password.RequireNonAlphanumeric = false;
                     opt.Password.RequiredUniqueChars = 0;
-                    opt.Password.RequiredLength = 3;
+                    opt.Password.RequiredLength = 5;
                     })
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<CookeryDbContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(
+                options =>
+                {
+                    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+
+                }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
         }
 
@@ -74,6 +80,7 @@ namespace Cookery.Web
                 app.UseHsts();
             }
 
+            app.UseSeedDataMiddleware();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
