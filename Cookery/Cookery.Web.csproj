@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
@@ -15,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cookery.Data\Cookery.Data.csproj" />
     <ProjectReference Include="..\Cookery.Models\Cookery.Models.csproj" />
+    <ProjectReference Include="..\Cookery.Services\Cookery.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

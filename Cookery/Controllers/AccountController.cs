@@ -1,10 +1,22 @@
-﻿using Cookery.Web.Models.Account;
+﻿using AutoMapper;
+using Cookery.Models;
+using Cookery.Services.Contracts;
+using Cookery.Services.Services;
+using Cookery.Web.Models.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookery.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IMapper mapper;
+        private readonly ICookeryAccountService accountService;
+
+        public AccountController(IMapper mapper, ICookeryAccountService accountService)
+        {
+            this.mapper = mapper;
+            this.accountService = accountService;
+        }
         
         public IActionResult Login()
         {
@@ -32,6 +44,9 @@ namespace Cookery.Web.Controllers
             }
             else
             {
+                var user = this.mapper.Map<CookeryUser>(model);
+                this.accountService.RegisterUser(user, model.Password);
+                
                 return new RedirectResult("/");
             }
         }

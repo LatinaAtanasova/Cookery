@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cookery.Data;
 using Cookery.Models;
+using Cookery.Services.Contracts;
+using Cookery.Services.Services;
 using Cookery.Web.Middlewares.MiddlewareExtensions;
+using Cookery.Web.Models.Account;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNet.Identity;
@@ -60,7 +64,14 @@ namespace Cookery.Web
                     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
 
                 }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+
+            services.AddAutoMapper(config =>
+            {
+                config.CreateMap<RegisterViewModel, CookeryUser>();
+
+            });
+            services.AddScoped<ICookeryAccountService, CookeryAccountService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

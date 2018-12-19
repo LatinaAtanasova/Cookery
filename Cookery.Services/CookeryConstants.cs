@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cookery.Web
+namespace Cookery.Services
 {
-    public static class Constants
+    public static class CookeryConstants
     {
         public const string AdminRole = "Admin";
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cookery.Data;
+using Cookery.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +34,9 @@ namespace Cookery.Web.Middlewares
 
         private async Task SeedRoles(RoleManager<IdentityRole> roleManager)
         {
-            var adminRoleResult = await roleManager.CreateAsync(new IdentityRole(Constants.AdminRole));
+            var adminRoleResult = await roleManager.CreateAsync(new IdentityRole(CookeryConstants.AdminRole));
 
-            var userRoleResult = await roleManager.CreateAsync(new IdentityRole(Constants.UserRole));
+            var userRoleResult = await roleManager.CreateAsync(new IdentityRole(CookeryConstants.UserRole));
 
             if (!adminRoleResult.Succeeded && !userRoleResult.Succeeded)
             {
