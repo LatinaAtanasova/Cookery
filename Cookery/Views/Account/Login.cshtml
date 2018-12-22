@@ -1,7 +1,47 @@
-﻿
+﻿@model Cookery.Web.Models.Account.LoginViewModel
+
 @{
     ViewBag.Title = "Login";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<section class="fullscreen" style="padding-top: 0px">
+    <div class="container container-fullscreen">
+        <div class="text-middle" style="vertical-align: text-top">
+            <div class="row">
+                <div class="col-lg-5 center background-white b-r-6" style="padding-top: 0px">
+
+                    <p class="text-danger">@ViewBag.Message</p>
+
+                    <h3>Login to your Account</h3>
+                    <form asp-controller="Account" asp-action="Login" method="post">
+                        <div class="form-group">
+                            <label asp-for="Username" class="sr-only">Username</label>
+                            <input asp-for="Username"type="text" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="form-group m-b-5">
+                            <label asp-for="Password" class="sr-only">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group form-inline text-left">
+
+                            <div class="form-check">
+                                <label asp-for="RememberMe">
+                                    <input asp-for="RememberMe" type="checkbox"><small> Remember me</small>
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="text-left form-group">
+                            <button type="submit" class="btn">Login</button>
+
+                        </div>
+                    </form>
+                    <p class="small">
+                        Don't have an account yet? <a asp-controller="Account" asp-action="Register">Register New Account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

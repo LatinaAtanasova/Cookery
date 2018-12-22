@@ -1,25 +1,48 @@
+@model Cookery.Web.Models.Account.LoginViewModel
+
 @using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<CookeryUser> SignInManager
 @inject UserManager<CookeryUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
-{
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-            </li>
-        </ul>
-    </form>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-    </ul>
-}
+<div class="row">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="col-md-6">
+            <div class="topbar-dropdown">
+                <div class="title">
+                    <p style="font-weight: bold; margin-bottom: 0px">Hello @UserManager.GetUserName(User)!</p>
+                </div>
+            </div>
+            <div class="topbar-dropdown">
+                <div class="title">
+                    <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post" id="logoutForm" class="navbar-right">
+                        <button type="submit" class="btn">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+    else if (!SignInManager.IsSignedIn(User))
+    {
+        <div class="col-md-6">
+            <div class="topbar-dropdown">
+                <div class="title">
+                    <i class="fa fa-sun-o"></i>
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                </div>
+            </div>
+            <div class="topbar-dropdown">
+                <div class="title">
+                    <i class="fa fa-sun-o"></i>
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                </div>
+            </div>
+            <div class="topbar-dropdown">
+                <div class="title">
+                    <p style="padding-top: 10px; font-weight: bold">Login or Register if you don't have an account!</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

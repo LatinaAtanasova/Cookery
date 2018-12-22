@@ -9,5 +9,7 @@ namespace Cookery.Services.Contracts
     public interface ICookeryAccountService
     {
        void RegisterUser(CookeryUser cookeryUser, string userPassword);
+
+        bool IsValidUser(CookeryUser cookeryUser, string userPassword);
     }
 }

@@ -55,5 +55,18 @@ namespace Cookery.Services.Services
                 }
             }
         }
+
+        public bool IsValidUser(CookeryUser cookeryUser, string userPassword)
+        {
+            var isValid = this.signIn.UserManager.CheckPasswordAsync(cookeryUser, userPassword).Result;
+            if (isValid.Equals(true))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
