@@ -1,4 +1,6 @@
-﻿@using Cookery.Services
+﻿
+@using Cookery.Services
+
 <!DOCTYPE html>
 <html>
 
@@ -53,7 +55,7 @@
     <!-- TOPBAR -->
     <div id="topbar" class="d-none d-xl-block d-lg-block">
         <div class="container">
-            @await Html.PartialAsync("_LoginPartial")
+            <partial name="_LoginPartial"/>
         </div>
     </div>
     <!-- end: TOPBAR -->
@@ -782,8 +784,8 @@
                                     <li class="dropdown">
                                         <a href="#">Shop</a>
                                         <ul class="dropdown-menu">
-                                            <li> <a asp-controller="ShoppingItem" asp-action="AllBooks">Cookery Books</a> </li>
-                                            <li> <a asp-controller="ShoppingItem" asp-action="AllMagazines">Cookery Magazines</a> </li>
+                                            <li> <a asp-controller="ShoppingItem" asp-action="All">Shopping Reading</a> </li>
+                                            @*<li> <a asp-controller="ShoppingItem" asp-action="AllMagazines">Cookery Magazines</a> </li>*@
                                         </ul>
                                     </li>
                                 </ul>

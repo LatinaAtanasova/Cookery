@@ -18,14 +18,11 @@ namespace Cookery.Services.Services
             this.dbContext = dbContext;
         }
 
-        public IList<ShoppingItem> GetAllBooks()
+        public IList<ShoppingItem> GetAllShoppingItems()
         {
-            return this.dbContext.ShoppingItems.Where(x => x.ShoppingType == ShoppingType.CookeryBook).ToList();
+            return this.dbContext.ShoppingItems.ToList();
         }
 
-        public IList<ShoppingItem> GetAllMagazines()
-        {
-            return this.dbContext.ShoppingItems.Where(x => x.ShoppingType == ShoppingType.CookeryMagazine).ToList();
-        }
+        
     }
 }

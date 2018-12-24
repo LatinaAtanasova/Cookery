@@ -6,8 +6,8 @@ namespace Cookery.Models.Enums
 {
     public enum ShoppingType
     {
-        CookeryBook = 1,
+        Book = 1,
 
-        CookeryMagazine = 2
+        Magazine = 2
     }
 }

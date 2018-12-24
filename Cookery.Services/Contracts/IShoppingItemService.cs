@@ -7,8 +7,8 @@ namespace Cookery.Services.Contracts
 {
     public interface IShoppingItemService
     {
-        IList<ShoppingItem> GetAllBooks();
+        IList<ShoppingItem> GetAllShoppingItems();
 
-        IList<ShoppingItem> GetAllMagazines();
+        
     }
 }
