@@ -17,6 +17,8 @@ namespace Cookery.Models
 
         public string ShortDescription { get; set; }
 
+        public string Picture { get; set; }
+
         public ShoppingType ShoppingType { get; set; }
 
         public string CookeryUserId { get; set; }
