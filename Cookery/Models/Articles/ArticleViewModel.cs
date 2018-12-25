@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Cookery.Models
+namespace Cookery.Web.Models.Articles
 {
-    public class CookeryArticle
+    public class ArticleViewModel
     {
-        // News Collection, Food News
-
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -17,8 +16,5 @@ namespace Cookery.Models
         public string ArticleContent { get; set; }
 
         public DateTime IssuedOn { get; set; }
-
-        public bool IsPublished { get; set; }
-
     }
 }

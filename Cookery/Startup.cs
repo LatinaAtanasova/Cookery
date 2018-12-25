@@ -72,6 +72,7 @@ namespace Cookery.Web
             });
             services.AddScoped<ICookeryAccountService, CookeryAccountService>();
             services.AddScoped<IShoppingItemService, ShoppingItemService>();
+            services.AddScoped<ICookeryArticleService, CookeryArticleService>();
 
         }
 

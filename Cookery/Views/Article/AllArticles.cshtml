@@ -1,0 +1,151 @@
+﻿@model List<Cookery.Web.Models.Articles.ArticleViewModel>
+
+@{
+    ViewBag.Title = "Cozy Reading Corner";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<section id="page-content">
+    <div class="container">
+        <!-- post content -->
+        <!-- Page title -->
+        <div class="page-title">
+            <h1>Blog Masonry - Three Columns</h1>
+            @*<div class="breadcrumb float-left">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">Three Columns</a>
+                    </li>
+                </ul>
+            </div>*@
+        </div>
+        <!-- end: Page title -->
+        <!-- Blog -->
+        <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
+
+        <!-- Post item-->
+        
+        @foreach(var article in Model)
+        { 
+        <div class="post-item border">
+                <div class="post-item-wrap">
+                    @*<div class="post-image">*@
+                        @*<a href="#">
+                            <img alt="" src="images/blog/12.jpg">
+                        </a>*@
+                        @*</div>*@
+                    <div class="post-item-description">
+                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@article.IssuedOn</span>
+                        @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
+                        <h2>
+                            <a href="#">
+                                @article.Title
+                            </a>
+                        </h2>
+                        <p>@article.ArticleContent.Substring(0, 200)</p>
+
+                        <a asp-controller="Article" asp-action="ArticleDetails" asp-route-id="@article.Id" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end: Post item-->
+        }
+            <!-- Post item YouTube-->
+            @*<div class="post-item border">
+                <div class="post-item-wrap">
+                    <div class="post-video">
+                        <iframe width="560" height="320" src="https://www.youtube.com/embed/dA8Smj5tZOQ" frameborder="0" allowfullscreen></iframe>
+                        <span class="post-meta-category"><a href="">Video</a></span>
+                    </div>
+                    <div class="post-item-description">
+                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
+                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
+
+                        <h2><a href="#">This is a example post with YouTube</a></h2>
+                        <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
+
+                        <a href="#" class="item-link">Read More </a>
+
+                    </div>
+                </div>
+            </div>*@
+            <!-- end: Post item YouTube-->
+            
+            <!-- Post item Vimeo-->
+            @*<@*div class="post-item border">
+                <div class="post-item-wrap">
+                    <div class="post-video">
+                        <iframe src="https://player.vimeo.com/video/198559065?title=0&byline=0&portrait=0" width="560" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <span class="post-meta-category"><a href="">Video</a></span>
+                    </div>
+                    <div class="post-item-description">
+                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
+                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
+
+                        <h2><a href="#">This is a example post with Vimeo video</a></h2>
+                        <p>
+                            Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.
+                            Cagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.
+                        </p>
+
+                        <a href="#" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end: Post item Vimeo-->
+            <!-- Post item HTML5 Audio-->
+            <div class="post-item border">
+                <div class="post-item-wrap">
+                    <div class="post-audio">
+                        <a href="#">
+                            <img alt="" src="images/blog/audio-bg.jpg">
+                        </a>
+                        <span class="post-meta-category"><a href="">Audio</a></span>
+                        <audio class="video-js vjs-default-skin" controls preload="false" data-setup="{}">
+                            <source src="audio/beautiful-optimist.mp3" type="audio/mp3" />
+                        </audio>
+                    </div>
+                    <div class="post-item-description">
+                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
+                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
+
+                        <h2><a href="#">Self Hosted HTML5 Audio (mp3) with image cover</a></h2>
+                        <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
+
+                        <a href="#" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+            </div>*@
+            <!-- end: Post item-->
+            
+            
+            
+        </div>
+        <!-- end: Blog -->
+        <!-- Pagination -->      <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item active"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+        </ul>
+        <!-- end: Pagination -->
+
+    </div>
+    <!-- end: post content -->
+
+</section>
+<!-- end: Content -->
