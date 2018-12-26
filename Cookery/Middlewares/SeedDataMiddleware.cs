@@ -42,7 +42,102 @@ namespace Cookery.Web.Middlewares
                 this.SeedCookeryArticles(dbContext);
             }
 
+            if (!dbContext.Recipes.Any())
+            {
+                this.SeedRecipes(dbContext);
+            }
+
             await this.next(context);
+        }
+
+        private void SeedRecipes(CookeryDbContext dbContext)
+        {
+            var recipes = new List<Recipe>();
+
+            recipes.AddRange(new List<Recipe>
+            { 
+                new Recipe
+                {
+                    RecipeName = "Bulgarian Tomato Salad (Shopska Salata)",
+                    CookeryCategory = CookeryCategory.Salad,
+                    CookingTime = "15 min",
+                    Description = "In a large bowl, place tomatoes, cucumber, peppers, onion and parsley, and toss. Place oil, vinegar, salt, and pepper to taste in a screw-top jar. Cover and shake until well blended. Toss dressing with vegetables, turn into a serving bowl and refrigerate until ready to serve. Top with crumbled cheese and portion on chilled plates. Serve with hearty bread and a glass of rakia.",
+                    PhotoUrl = "bulgarian-shopska-salata.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Tomato",
+                                ProductUnit = "4"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cucumber",
+                                ProductUnit = "1"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Onion",
+                                ProductUnit = "1"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Parsley",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "sunflower oil",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "red wine vinegar",
+                                ProductUnit = "1/4 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "small amount"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "cheese",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                    }
+
+
+                }
+            });
+
+            dbContext.Recipes.AddRange(recipes);
+            dbContext.SaveChanges();
+
         }
 
         private void SeedCookeryArticles(CookeryDbContext dbContext)

@@ -1,0 +1,11 @@
+﻿@model Int32
+
+<form method="post" asp-controller="Product" asp-action="ProductPartial" class="form-transparent-grey">
+    <input type="text" name="Products[@Model.ToString()].ProductName" />
+    <input type="text" name="Products[@Model.ToString()].ProductUnit" />
+    <div class="col-lg-12 form-group">
+        <button class="btn" id="AddProduct" type="submit">Add Product</button>
+        <button type="reset" class="btn btn-danger m-l-10">Cancel</button>
+
+    </div>
+</form>

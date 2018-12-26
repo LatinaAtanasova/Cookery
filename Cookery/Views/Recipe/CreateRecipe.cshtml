@@ -1,0 +1,138 @@
+﻿@using Cookery.Web.Models.Product
+@using Cookery.Web.Models.Recipe
+@model Cookery.Web.Models.Recipe.RecipeViewModel
+
+
+@{
+    ViewBag.Title = "Create Recipe";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 center no-padding">
+
+                <form method="post" asp-controller="Recipe" asp-action="CreateRecipe" class="form-transparent-grey">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Create Recipe</h3>
+                        </div>
+
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="RecipeName" class="sr-only">Recipe Name</label>
+                            <input asp-for="RecipeName" type="text" value="" placeholder="Recipe Name" class="form-control">
+                            <span asp-validation-for="RecipeName" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="CookingTime" class="sr-only">Cooking Time</label>
+                            <input asp-for="CookingTime" type="text" value="" placeholder="Cooking Time" class="form-control">
+                            <span asp-validation-for="CookingTime" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Description" class="sr-only">Description</label>
+                            <textarea asp-for="Description" type="text" value="" placeholder="Description" class="form-control"></textarea>
+                            @*<input asp-for="Description" type="text" value="" placeholder="Username" class="form-control">*@
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+
+                            @await Html.PartialAsync("ProductPartial");
+                        </ div >
+
+                        @*<div class="col-lg-6 form-group">
+                            <label asp-for="@Model.Products." class="sr-only">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" value="" placeholder="Confirm Password" class="form-control">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Email" class="sr-only">E-mail</label>
+                            <input asp-for="Email" type="text" value="" placeholder="E-mail" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>*@
+                        <div class="col-lg-6 form-group">
+                            <p>Please choose category:</p>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="CookeryCategory" id="Salad" value="Salad">
+                                    <label class="form-check-label" for="Salad" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                      font-size: 1em;
+                                      font-style: normal;
+                                      font-weight: 400;
+                                      text-transform: none;
+                                      line-height: 1.6;
+                                      letter-spacing: 0;
+                                      color: #646464">
+                                        Salad
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="CookeryCategory" id="Meal" value="Meal">
+                                    <label class="form-check-label" for="Meal" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                 font-size: 1em;
+                                                                                                                                                 font-style: normal;
+                                                                                                                                                 font-weight: 400;
+                                                                                                                                                 text-transform: none;
+                                                                                                                                                 line-height: 1.6;
+                                                                                                                                                 letter-spacing: 0;
+                                                                                                                                                 color: #646464">
+                                        Meal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="CookeryCategory" id="Dessert" value="Dessert">
+                                    <label class="form-check-label" for="Dessert" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                                                                        font-size: 1em;
+                                                                                                                                                                                                        font-style: normal;
+                                                                                                                                                                                                        font-weight: 400;
+                                                                                                                                                                                                        text-transform: none;
+                                                                                                                                                                                                        line-height: 1.6;
+                                                                                                                                                                                                        letter-spacing: 0;
+                                                                                                                                                                                                        color: #646464">
+                                        Dessert
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <button class="btn" type="submit">Create Recipe</button>
+                            <button type="reset" class="btn btn-danger m-l-10">Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var tpj = jQuery;
+
+var ProductIndex = parseInt(1);  // 1 because we already have 0 loaded
+
+    $("#AddProduct").click(function () {
+
+    $.ajax({
+        cache: false,
+        type: "GET",
+        url: "/Product/ProductPartial",
+        data: {
+            Index: ProductIndex
+        },
+        success: function (data) {
+            // data will be the html from the partial view
+            $("#ProductsContainer").append(data);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Handle the error somehow
+        }
+    }); // end ajax call
+    }); // end AddQualificationElement click event
+    </script>

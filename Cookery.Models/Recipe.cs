@@ -29,6 +29,8 @@ namespace Cookery.Models
 
         public int? Rating { get; set; } // rating the recipe
 
+        public bool isPublished { get; set; }
+
         
         public string CookeryUserId { get; set; }
         public virtual CookeryUser CookeryUser { get; set; }
