@@ -1,0 +1,13 @@
+﻿@model Cookery.Web.Models.Recipe.RecipeViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>@Model.RecipeName</h2>
+
+
+@Model.CookeryCategory
+@Model.CookingTime
+@Model.Description

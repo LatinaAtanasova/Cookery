@@ -10,8 +10,6 @@ namespace Cookery.Web.Models.Recipe
 {
     public class RecipeViewModel
     {
-        public int RecipeId { get; set; }
-
         public string RecipeName { get; set; }
 
         public CookeryCategory CookeryCategory { get; set; }

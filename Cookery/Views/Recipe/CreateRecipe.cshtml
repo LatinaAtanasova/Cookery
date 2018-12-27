@@ -38,21 +38,36 @@
                             @*<input asp-for="Description" type="text" value="" placeholder="Username" class="form-control">*@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
-                        <div class="col-lg-6 form-group">
 
-                            @await Html.PartialAsync("ProductPartial");
-                        </ div >
+                        Products
+
+                        @for (int i = 0; i < 11; i++)
+                        {
+                            <div class="col-lg-6 form-group">
+                                <label asp-for="Products[i].ProductName" class="sr-only">Product Name</label>
+                                <input asp-for="Products[i].ProductName" type="text" value="" placeholder="Product Name" class="form-control">
+                                <span asp-validation-for="Products[i].ProductName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-6 form-group">
+                                <label asp-for="Products[i].ProductUnit" class="sr-only">Product Unit</label>
+                                <input asp-for="Products[i].ProductUnit" type="text" value="" placeholder="Product Unit" class="form-control">
+                                <span asp-validation-for="Products[i].ProductUnit" class="text-danger"></span>
+                            </div>
+
+                        }
+
 
                         @*<div class="col-lg-6 form-group">
-                            <label asp-for="@Model.Products." class="sr-only">Confirm Password</label>
-                            <input asp-for="ConfirmPassword" type="password" value="" placeholder="Confirm Password" class="form-control">
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label asp-for="Email" class="sr-only">E-mail</label>
-                            <input asp-for="Email" type="text" value="" placeholder="E-mail" class="form-control">
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>*@
+            <label asp-for="@Model.Products." class="sr-only">Confirm Password</label>
+            <input asp-for="ConfirmPassword" type="password" value="" placeholder="Confirm Password" class="form-control">
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="col-lg-6 form-group">
+            <label asp-for="Email" class="sr-only">E-mail</label>
+            <input asp-for="Email" type="text" value="" placeholder="E-mail" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>*@
                         <div class="col-lg-6 form-group">
                             <p>Please choose category:</p>
                             <div class="col-sm-10">
@@ -72,13 +87,13 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="CookeryCategory" id="Meal" value="Meal">
                                     <label class="form-check-label" for="Meal" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
-                                                                                                                                                 font-size: 1em;
-                                                                                                                                                 font-style: normal;
-                                                                                                                                                 font-weight: 400;
-                                                                                                                                                 text-transform: none;
-                                                                                                                                                 line-height: 1.6;
-                                                                                                                                                 letter-spacing: 0;
-                                                                                                                                                 color: #646464">
+                                                                                             font-size: 1em;
+                                                                                             font-style: normal;
+                                                                                             font-weight: 400;
+                                                                                             text-transform: none;
+                                                                                             line-height: 1.6;
+                                                                                             letter-spacing: 0;
+                                                                                             color: #646464">
                                         Meal
                                     </label>
                                 </div>
@@ -112,27 +127,20 @@
     </div>
 </section>
 
+@*<script src="/js/jquery.js"></script>*@
+@*<script src="/js/plugins.js"></script>*@
+
+<!--Template functions-->
+@*<script src="/js/functions.js"></script>
+
+
 <script type="text/javascript">
-    var tpj = jQuery;
-
-var ProductIndex = parseInt(1);  // 1 because we already have 0 loaded
-
-    $("#AddProduct").click(function () {
-
-    $.ajax({
-        cache: false,
-        type: "GET",
-        url: "/Product/ProductPartial",
-        data: {
-            Index: ProductIndex
-        },
-        success: function (data) {
-            // data will be the html from the partial view
-            $("#ProductsContainer").append(data);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            // Handle the error somehow
-        }
-    }); // end ajax call
-    }); // end AddQualificationElement click event
-    </script>
+    $("#addItem").click(function () {
+        $.ajax({
+            url: this.href,
+            cache: false,
+            success: function (html) { $("#productsRows").append(html); }
+        });
+        return false;
+    });
+</script>*@
