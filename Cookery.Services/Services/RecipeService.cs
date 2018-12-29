@@ -32,5 +32,11 @@ namespace Cookery.Services.Services
             var recipe = dbContext.Recipes.FirstOrDefault(x => x.Id == id);
             return recipe;
         }
+
+        public ICollection<Recipe> AllPublishedRecipes()
+        {
+            var allPublishedRecipes = this.dbContext.Recipes.Where(x => x.isPublished == true).ToList();
+            return allPublishedRecipes;
+        }
     }
 }

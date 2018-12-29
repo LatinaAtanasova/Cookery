@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using Cookery.Models;
 using Cookery.Services.Contracts;
 using Cookery.Web.Models.Product;
@@ -11,10 +13,13 @@ namespace Cookery.Web.Controllers
     public class RecipeController : Controller
     {
         private readonly IRecipeService recipeService;
+        private readonly IMapper mapper;
 
-        public RecipeController(IRecipeService recipeService)
+        public RecipeController(IRecipeService recipeService,
+                                 IMapper mapper)
         {
             this.recipeService = recipeService;
+            this.mapper = mapper;
         }
 
         // GET
@@ -78,6 +83,36 @@ namespace Cookery.Web.Controllers
 
             //var products = recipe.Products;
             return this.View(recipeModel);
+        }
+
+        public IActionResult AllRecipes()
+        {
+            var allRecipes = this.recipeService.AllPublishedRecipes().ToList();
+
+            var recipeModels = new List<RecipeViewModel>();
+
+            foreach (var recipe in allRecipes)
+            {
+                var products = recipe.Products.Select(x => new ProductViewModel
+                {
+                    ProductName = x.Product.ProductName,
+                    ProductUnit = x.Product.ProductUnit
+                }).ToList();
+
+                
+                var recipeModel = this.mapper.Map<RecipeViewModel>(recipe);
+
+                recipeModels.Add(recipeModel);
+
+            }
+
+
+            return this.View();
+        }
+
+        public IActionResult MyRecipes()
+        {
+            return this.View();
         }
     }
 }

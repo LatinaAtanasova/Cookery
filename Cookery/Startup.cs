@@ -16,6 +16,8 @@ using Cookery.Services.Contracts;
 using Cookery.Services.Services;
 using Cookery.Web.Middlewares.MiddlewareExtensions;
 using Cookery.Web.Models.Account;
+using Cookery.Web.Models.Product;
+using Cookery.Web.Models.Recipe;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNet.Identity;
@@ -68,6 +70,10 @@ namespace Cookery.Web
             services.AddAutoMapper(config =>
             {
                 config.CreateMap<RegisterViewModel, CookeryUser>();
+                config.CreateMap<RecipeViewModel, Recipe>()
+                    // в случаите, когато пропъртитата не са едни и същи //
+                    .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.Products));
+                config.CreateMap<ProductViewModel, Product>();
 
             });
             services.AddScoped<ICookeryAccountService, CookeryAccountService>();
@@ -103,6 +109,10 @@ namespace Cookery.Web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

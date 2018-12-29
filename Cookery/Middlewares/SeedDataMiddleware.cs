@@ -55,10 +55,11 @@ namespace Cookery.Web.Middlewares
             var recipes = new List<Recipe>();
 
             recipes.AddRange(new List<Recipe>
-            { 
+            {
                 new Recipe
                 {
                     RecipeName = "Bulgarian Tomato Salad (Shopska Salata)",
+                    isPublished = true,
                     CookeryCategory = CookeryCategory.Salad,
                     CookingTime = "15 min",
                     Description = "In a large bowl, place tomatoes, cucumber, peppers, onion and parsley, and toss. Place oil, vinegar, salt, and pepper to taste in a screw-top jar. Cover and shake until well blended. Toss dressing with vegetables, turn into a serving bowl and refrigerate until ready to serve. Top with crumbled cheese and portion on chilled plates. Serve with hearty bread and a glass of rakia.",
@@ -130,9 +131,640 @@ namespace Cookery.Web.Middlewares
                             }
                         },
                     }
+                },
 
-
+                new Recipe
+                {
+                    RecipeName = "Chicken Salad with Bacon, Lettuce, and Tomato",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Salad,
+                    CookingTime = "1 hour",
+                    Description = "Place bacon in a large skillet and cook over medium-high heat, turning occasionally, until evenly browned, about 10 minutes. Drain bacon slices on paper towels; crumble. " +
+                                  "Stir chicken, bacon, tomato, and celery together in a bowl." +
+                                  "Whisk mayonnaise, parsley, green onions, lemon juice, Worcestershire sauce, salt, and black pepper together in a bowl until dressing is smooth. Pour dressing over chicken mixture; toss to coat.Refrigerate until chilled, at least 30 minutes." +
+                                  "Stir chicken mixture and serve over romaine lettuce leaves; garnish with avocado slices.",
+                    PhotoUrl = "chicken_salad.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Bacon",
+                                ProductUnit = "5 slices"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cooked chicken",
+                                ProductUnit = "3 cups diced"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Celery",
+                                ProductUnit = "2, thinly sliced"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Mayonnaise",
+                                ProductUnit = "3/4 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "sunflower oil",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Green onion",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Parsley",
+                                ProductUnit = "1 tablespoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lemon juice",
+                                ProductUnit = "1 teaspoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "black pepper",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lettuce",
+                                ProductUnit = "12 leaves"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Summer Corn Salad",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Salad,
+                    CookingTime = "45 min",
+                    Description = "Bring a large pot of lightly salted water to a boil. Cook corn in boiling water for 7 to 10 minutes, or until desired tenderness. Drain, cool, and cut kernels off the cob with a sharp knife. " +
+                                  "In a large bowl, toss together the corn, tomatoes, onion, basil, oil, vinegar, salt and pepper. Chill until serving.",
+                    PhotoUrl = "summer_corn_salad.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Corn",
+                                ProductUnit = "2 cans"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Tomato",
+                                ProductUnit = "3"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Onion",
+                                ProductUnit = "1"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Fresh basil",
+                                ProductUnit = "1/4 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Olive oil",
+                                ProductUnit = "1/4 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "White vinegar",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Parsley",
+                                ProductUnit = "1 tablespoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "black pepper",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Lemon Chicken and Potato Bake",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Meal,
+                    CookingTime = "1 hour 10 min",
+                    Description = "Preheat oven to 425 degrees F (220 degrees C). Grease a large baking sheet with sides." +
+                                  "Place chicken quarters on prepared baking sheet. Stir potatoes, olive oil, juice of 1 lemon, basil, oregano, salt, pepper, and lemon herb seasoning together in a large bowl to coat potatoes. Arrange potatoes around chicken on baking sheet. Pour about 3/4 of oil mixture over chicken, reserving remaining oil; drizzle remaining lemon juice over chicken and potatoes." +
+                                  "Bake in the preheated oven for about 30 minutes; shake baking sheet to loosen potatoes, then continue baking for 15 minutes.Place green beans in reserved oil mixture; toss to coat.Remove chicken mixture from oven; pour green bean mixture over chicken and potatoes." +
+                                  "Return pan to the oven; bake until green beans are tender with a bite, chicken is no longer pink at the bone and juices run clear, about 15 minutes.An instant-read thermometer inserted near the bone should read 165 degrees F(74 degrees C)",
+                    PhotoUrl = "lemon_chicken_potato.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Chicken",
+                                ProductUnit = "4 leg quarters"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Potatoes",
+                                ProductUnit = "1 small bag"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Olive oil",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lemon",
+                                ProductUnit = "2, juiced"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Dried Basil",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Herb seasoning",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Fresh green beans",
+                                ProductUnit = "1 package"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "black pepper",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Lemon Chicken and Potato Bake",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Meal,
+                    CookingTime = "40 min",
+                    Description = "Season pork chops with salt, pepper, and garlic salt to taste." +
+                                  "In a large skillet, brown the chops over medium-high heat. Add the onion and mushrooms, and saute for one minute. Pour cream of mushroom soup over chops.Cover skillet, and reduce temperature to medium - low. Simmer 20 to 30 minutes, or until chops are cooked through.",
+                    PhotoUrl = "mushroom_pork_chops.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Pork chops",
+                                ProductUnit = "4"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Onion",
+                                ProductUnit = "1, sliced"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Fresh Mushroom",
+                                ProductUnit = "1/2 kg"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Condensed cream",
+                                ProductUnit = "1 can"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Garlic salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "black pepper",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Strawberry Angel Food Dessert",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Dessert,
+                    CookingTime = "15 min",
+                    Description = "Crumble the cake into a 9x13 inch dish." +
+                                  "Beat the cream cheese and sugar in a medium bowl until light and fluffy. Fold in whipped topping. Mash the cake down with your hands and spread the cream cheese mixture over the cake." +
+                                  "In a bowl, combine strawberries and glaze until strawberries are evenly coated. Spread over cream cheese layer. Chill until serving.",
+                    PhotoUrl = "strawberry_dessert.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Food cake",
+                                ProductUnit = "1"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cream cheese",
+                                ProductUnit = "2 packages"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "White sugar",
+                                ProductUnit = "1 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Frozen whipped topping",
+                                ProductUnit = "1 container"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Fresh strawberries",
+                                ProductUnit = "1/4 kg"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Strawberry glaze",
+                                ProductUnit = "1 jar"
+                            }
+                        }
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Tiramisu",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Dessert,
+                    CookingTime = "3 hours 30 min",
+                    Description = "In a medium bowl beat together the egg yolks and 1/3 cup of sugar. Using a wooden spoon stir in mascarpone cheese, beaten egg whites, cream and kirschwasser; stir until smooth. Set aside." +
+                                  "Dissolve remaining 2/3 cup sugar in coffee. Quickly, to avoid complete saturation, dip ends of ladyfingers in coffee mixture. Place ladyfingers in a single layer in a 9 x 13 inch glass baking dish. Spread a layer of cheese mixture over the ladyfingers; repeat layers, ending with cheese mixture." +
+                                  "Cover and refrigerate for several hours. Sprinkle with cocoa just before serving.",
+                    PhotoUrl = "tiramisu.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Egg yolks",
+                                ProductUnit = "6"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "White sugar",
+                                ProductUnit = "1 cup"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Mascarpone cheese",
+                                ProductUnit = "500 g"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Egg whites",
+                                ProductUnit = "6, stiffly beaten"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Heavy cream",
+                                ProductUnit = "1/4 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Kirschwasser",
+                                ProductUnit = "3 tablespoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Brewed coffee",
+                                ProductUnit = "1 1/4 cups strong, cold"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Ladyfingers",
+                                ProductUnit = "25"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cocoa powder",
+                                ProductUnit = "1 tablespoon, unsweetened"
+                            }
+                        }
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Breakfast Cups",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Breakfast,
+                    CookingTime = "30 min",
+                    Description = "Preheat oven to 400 degrees F (200 degrees C). Grease 18 muffin cups with cooking spray." +
+                                  "Roll out biscuit dough on a lightly floured surface to form 5-inch rounds. Place each round in the prepared muffin cups, pressing into the base and sides to form a dough cup." +
+                                  "Cook and stir sausage in a skillet over medium-high heat until browned and cooked through, 5 to 10 minutes; drain fat. Spoon sausage into dough cups. Whisk eggs, milk, salt, and pepper together in a bowl until well-beaten.Pour egg mixture into each dough cup, filling each just below the top of the biscuit dough.Sprinkle Cheddar cheese on top of egg mixture." +
+                                  "Bake in the preheated oven until eggs are set and biscuit dough is golden, 15 to 18 minutes.",
+                    PhotoUrl = "breakfast_cups.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Biscuits",
+                                ProductUnit = "18 refrigerated, unbaked"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Sausage",
+                                ProductUnit = "3 pieces"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Eggs",
+                                ProductUnit = "7"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Milk",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cheddar cheese",
+                                ProductUnit = "1 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "salt",
+                                ProductUnit = "to taste"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "black pepper",
+                                ProductUnit = "to taste"
+                            }
+                        }
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Irish Breakfast",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Breakfast,
+                    CookingTime = "15 min",
+                    Description = "Lay the bacon slices in a single layer in a large skillet. Fry over medium heat until it begins to get tinged with brown. Fry on both sides. Remove from pan, but save grease." +
+                                  "Melt butter in skillet. Crack eggs into pan, being careful not to break yolks.Place tomato slices, mushrooms, and bread in pan.Fry gently, stirring mushrooms and tomatoes occasionally. Keep everything separate.Turn bread over to brown on both sides." +
+                                  "When egg whites are set, but yolks are still runny, dish half of everything onto each of 2 warmed plates, and serve immediately.",
+                    PhotoUrl = "irish_breakfast.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Bacon",
+                                ProductUnit = "6 thick slices"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Butter",
+                                ProductUnit = "2 tablespoons"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Eggs",
+                                ProductUnit = "4"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Tomatoes",
+                                ProductUnit = "2"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Whole mushrooms",
+                                ProductUnit = "1 1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Bread",
+                                ProductUnit = "4 slices"
+                            }
+                        }
+                    }
                 }
+
+
+
+
+
+
+
             });
 
             dbContext.Recipes.AddRange(recipes);
@@ -212,7 +844,7 @@ namespace Cookery.Web.Middlewares
         private void SeedShoppingItems(CookeryDbContext dbContext)
         {
             List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
-            shoppingItems.AddRange(new List<ShoppingItem>   
+            shoppingItems.AddRange(new List<ShoppingItem>
             {
                 new ShoppingItem{
                     Author = "Victoria Blashford-Snell",

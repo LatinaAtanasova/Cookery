@@ -10,5 +10,7 @@ namespace Cookery.Services.Contracts
         int CreateRecipe(Recipe recipe);
 
         Recipe GetRecipeById(int id);
+
+        ICollection<Recipe> AllPublishedRecipes();
     }
 }
