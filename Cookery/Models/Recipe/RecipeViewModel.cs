@@ -10,6 +10,8 @@ namespace Cookery.Web.Models.Recipe
 {
     public class RecipeViewModel
     {
+        public int Id { get; set; }
+
         public string RecipeName { get; set; }
 
         public CookeryCategory CookeryCategory { get; set; }
@@ -17,6 +19,8 @@ namespace Cookery.Web.Models.Recipe
         public string CookingTime { get; set; } // in minutes
 
         public string Description { get; set; } // cooking steps
+
+        public string PhotoUrl { get; set; }
 
         public List<ProductViewModel> Products { get; set; }
     }

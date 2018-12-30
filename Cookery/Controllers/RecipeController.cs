@@ -98,16 +98,13 @@ namespace Cookery.Web.Controllers
                     ProductName = x.Product.ProductName,
                     ProductUnit = x.Product.ProductUnit
                 }).ToList();
-
                 
                 var recipeModel = this.mapper.Map<RecipeViewModel>(recipe);
+                recipeModel.Products = products;
 
                 recipeModels.Add(recipeModel);
-
             }
-
-
-            return this.View();
+            return this.View(recipeModels);
         }
 
         public IActionResult MyRecipes()

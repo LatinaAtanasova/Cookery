@@ -11,6 +11,6 @@ namespace Cookery.Services.Contracts
 
         Recipe GetRecipeById(int id);
 
-        ICollection<Recipe> AllPublishedRecipes();
+        IList<Recipe> AllPublishedRecipes();
     }
 }

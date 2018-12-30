@@ -31,19 +31,25 @@ namespace Cookery.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+          
 
             builder.Entity<RecipeProduct>()
                 .HasKey(x => new { x.ProductId, x.RecipeId });
 
             builder.Entity<RecipeProduct>()
                 .HasOne(x => x.Product)
-                .WithMany(x => x.RecipesWithProduct)
+                .WithMany(x => x.Recipes)
                 .HasForeignKey(x => x.ProductId);
 
             builder.Entity<RecipeProduct>()
                 .HasOne(x => x.Recipe)
                 .WithMany(x => x.Products)
                 .HasForeignKey(x => x.RecipeId);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies(true);
         }
     }
 

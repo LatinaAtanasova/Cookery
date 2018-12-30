@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -33,9 +34,13 @@ namespace Cookery.Services.Services
             return recipe;
         }
 
-        public ICollection<Recipe> AllPublishedRecipes()
+        public IList<Recipe> AllPublishedRecipes()
         {
-            var allPublishedRecipes = this.dbContext.Recipes.Where(x => x.isPublished == true).ToList();
+            var allPublishedRecipes = this.dbContext.Recipes
+                .Where(x => x.isPublished)
+                .Include(recipe => recipe.Products)
+                .ToList();
+                
             return allPublishedRecipes;
         }
     }

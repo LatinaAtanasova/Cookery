@@ -70,9 +70,9 @@ namespace Cookery.Web
             services.AddAutoMapper(config =>
             {
                 config.CreateMap<RegisterViewModel, CookeryUser>();
-                config.CreateMap<RecipeViewModel, Recipe>()
-                    // в случаите, когато пропъртитата не са едни и същи //
-                    .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.Products));
+                config.CreateMap<Recipe, RecipeViewModel>()
+                    .ForMember(dest => dest.Products, opt => opt.Ignore());
+
                 config.CreateMap<ProductViewModel, Product>();
 
             });

@@ -8,7 +8,7 @@ namespace Cookery.Models
     {
         public Product()
         {
-            this.RecipesWithProduct = new HashSet<RecipeProduct>();
+            this.Recipes = new HashSet<RecipeProduct>();
         }
 
         public int Id { get; set; }
@@ -18,7 +18,7 @@ namespace Cookery.Models
         public string ProductUnit { get; set; }
 
 
-        public ICollection<RecipeProduct> RecipesWithProduct { get; set; } // recipes containing this product
+        public virtual ICollection<RecipeProduct> Recipes { get; set; } // recipes containing this product
 
     }
 }

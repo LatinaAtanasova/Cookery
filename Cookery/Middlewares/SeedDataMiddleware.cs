@@ -757,14 +757,220 @@ namespace Cookery.Web.Middlewares
                             }
                         }
                     }
+                },
+                new Recipe
+                {
+                    RecipeName = "Mozzarella and Tomato Appetizer Tray",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Appetizer,
+                    CookingTime = "50 min",
+                    Description = "In a medium bowl, mix together parsley, basil, oregano, capers, garlic and olive oil." +
+                                  "On a serving platter, arrange mozzarella cheese slices and tomato slices in alternating layers. Top with roasted red peppers. Drizzle with the herb and olive oil mixture. Cover and chill in the refrigerator 30 minutes before sprinkling with crushed red pepper and serving.",
+                    PhotoUrl = "mozzarela_appetizer.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Fresh Parsley",
+                                ProductUnit = "1 tablespoon, minced"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Basil",
+                                ProductUnit = "1/2 tablespoon, dried"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Olive oil",
+                                ProductUnit = "6 tablespoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Mozzarella cheese",
+                                ProductUnit = "250 g"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Tomatoes",
+                                ProductUnit = "2"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Janet's Appetizer",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Appetizer,
+                    CookingTime = "12 min",
+                    Description = "Preheat your oven's broiler." +
+                                  "In a medium bowl, stir together mayonnaise, onion, cheddar, crabmeat, mustard, and garlic powder." +
+                                  "Arrange bread slices on a cookie sheet. Place 1 tablespoon of the mixture on each slice. Sprinkle the bread slice liberally with lemon pepper spice (this is the key ingredient, so don't be shy with the spice!)." +
+                                  "Broil for less than two minutes.",
+                    PhotoUrl = "Janet_appetizer.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Mayonnaise",
+                                ProductUnit = "1 cup"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Red onion",
+                                ProductUnit = "1 cup, minced"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Cheddar cheese",
+                                ProductUnit = "1 cup, shredded"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Mustard",
+                                ProductUnit = "1 teaspoon"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Party bread",
+                                ProductUnit = "1/2 loaf sliced"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Triple Fruit Drink",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Drinks,
+                    CookingTime = "5 min",
+                    Description = "In a pitcher, combine apricot nectar, orange juice, and lemon juice. Serve chilled.",
+                    PhotoUrl = "triple_fruit_drink.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Apricot nectar",
+                                ProductUnit = "1l, chilled"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Orange juice",
+                                ProductUnit = "1 1/2 cup, chilled"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lemon juice",
+                                ProductUnit = "2 tablespoons"
+                            }
+                        },
+                    }
+                },
+                new Recipe
+                {
+                    RecipeName = "Classic Spanish Sangria",
+                    isPublished = true,
+                    CookeryCategory = CookeryCategory.Drinks,
+                    CookingTime = "2 h 10 min",
+                    Description = "Have the fruit, rum, wine, and orange juice well chilled. Slice the lemon, lime and orange into thin rounds and place in a large glass pitcher. Pour in the rum and sugar. Chill in refrigerator for 2 hours to develop the flavors." +
+                                  "When ready to serve, crush the fruit lightly with a wooden spoon and stir in the wine and orange juice. Adjust sweetness to taste.",
+                    PhotoUrl = "spanish_sangria.png",
+                    Products = new List<RecipeProduct>
+                    {
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lemon",
+                                ProductUnit = "1"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Lime",
+                                ProductUnit = "1"
+                            },
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Orange",
+                                ProductUnit = "1"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Rum",
+                                ProductUnit = "1 1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "White sugar",
+                                ProductUnit = "1/2 cup"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Red whine",
+                                ProductUnit = "1 bottle, dry"
+                            }
+                        },
+                        new RecipeProduct
+                        {
+                            Product = new Product
+                            {
+                                ProductName = "Orange juice",
+                                ProductUnit = "1 cup"
+                            }
+                        }
+                    }
                 }
-
-
-
-
-
-
-
             });
 
             dbContext.Recipes.AddRange(recipes);
