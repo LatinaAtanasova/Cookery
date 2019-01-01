@@ -1,0 +1,83 @@
+﻿@model ICollection<Cookery.Web.Models.Recipe.RecipeViewModel>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<section id="page-content">
+    <div class="container">
+        <!-- post content -->
+        <!-- Page title -->
+        <div class="page-title">
+            <h1>Received Recipes</h1>
+            <h3>Not published</h3>
+            <div class="breadcrumb float-left">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">Textual Version</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end: Page title -->
+        <!-- Blog -->
+        <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
+
+            @foreach (var recipe in Model)
+            {
+                <!-- Post item-->
+                <div class="post-item border">
+                    <div class="post-item-wrap">
+                        <div class="post-item-description">
+                            <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@recipe.Date</span>
+                            @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span><span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>Lifestyle</a></span>*@
+                            <h2>
+                                <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id">
+                                    @recipe.RecipeName
+                                </a>
+                            </h2>
+                            @if (@recipe.Description.Length < 200)
+                            {
+                                <p>@recipe.Description</p>
+                            }
+                            @if (@recipe.Description.Length > 200)
+                            {
+                                <p>@recipe.Description.Substring(0, 200)</p>
+                            }
+                            <a asp-area="" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Post item-->
+
+            }
+
+        </div>
+        <!-- end: Blog -->
+        <!-- Pagination -->      <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item active"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+        </ul>
+        <!-- end: Pagination -->
+
+    </div>
+    <!-- end: post content -->
+
+</section>
+<!-- end: Content -->

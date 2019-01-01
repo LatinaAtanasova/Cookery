@@ -64,6 +64,7 @@ namespace Cookery.Web.Middlewares
                     CookingTime = "15 min",
                     Description = "In a large bowl, place tomatoes, cucumber, peppers, onion and parsley, and toss. Place oil, vinegar, salt, and pepper to taste in a screw-top jar. Cover and shake until well blended. Toss dressing with vegetables, turn into a serving bowl and refrigerate until ready to serve. Top with crumbled cheese and portion on chilled plates. Serve with hearty bread and a glass of rakia.",
                     PhotoUrl = "bulgarian-shopska-salata.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -144,6 +145,7 @@ namespace Cookery.Web.Middlewares
                                   "Whisk mayonnaise, parsley, green onions, lemon juice, Worcestershire sauce, salt, and black pepper together in a bowl until dressing is smooth. Pour dressing over chicken mixture; toss to coat.Refrigerate until chilled, at least 30 minutes." +
                                   "Stir chicken mixture and serve over romaine lettuce leaves; garnish with avocado slices.",
                     PhotoUrl = "chicken_salad.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -245,6 +247,7 @@ namespace Cookery.Web.Middlewares
                     Description = "Bring a large pot of lightly salted water to a boil. Cook corn in boiling water for 7 to 10 minutes, or until desired tenderness. Drain, cool, and cut kernels off the cob with a sharp knife. " +
                                   "In a large bowl, toss together the corn, tomatoes, onion, basil, oil, vinegar, salt and pepper. Chill until serving.",
                     PhotoUrl = "summer_corn_salad.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -332,6 +335,7 @@ namespace Cookery.Web.Middlewares
                                   "Bake in the preheated oven for about 30 minutes; shake baking sheet to loosen potatoes, then continue baking for 15 minutes.Place green beans in reserved oil mixture; toss to coat.Remove chicken mixture from oven; pour green bean mixture over chicken and potatoes." +
                                   "Return pan to the oven; bake until green beans are tender with a bite, chicken is no longer pink at the bone and juices run clear, about 15 minutes.An instant-read thermometer inserted near the bone should read 165 degrees F(74 degrees C)",
                     PhotoUrl = "lemon_chicken_potato.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -417,6 +421,7 @@ namespace Cookery.Web.Middlewares
                     Description = "Season pork chops with salt, pepper, and garlic salt to taste." +
                                   "In a large skillet, brown the chops over medium-high heat. Add the onion and mushrooms, and saute for one minute. Pour cream of mushroom soup over chops.Cover skillet, and reduce temperature to medium - low. Simmer 20 to 30 minutes, or until chops are cooked through.",
                     PhotoUrl = "mushroom_pork_chops.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -487,6 +492,7 @@ namespace Cookery.Web.Middlewares
                                   "Beat the cream cheese and sugar in a medium bowl until light and fluffy. Fold in whipped topping. Mash the cake down with your hands and spread the cream cheese mixture over the cake." +
                                   "In a bowl, combine strawberries and glaze until strawberries are evenly coated. Spread over cream cheese layer. Chill until serving.",
                     PhotoUrl = "strawberry_dessert.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -549,6 +555,7 @@ namespace Cookery.Web.Middlewares
                                   "Dissolve remaining 2/3 cup sugar in coffee. Quickly, to avoid complete saturation, dip ends of ladyfingers in coffee mixture. Place ladyfingers in a single layer in a 9 x 13 inch glass baking dish. Spread a layer of cheese mixture over the ladyfingers; repeat layers, ending with cheese mixture." +
                                   "Cover and refrigerate for several hours. Sprinkle with cocoa just before serving.",
                     PhotoUrl = "tiramisu.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -636,6 +643,7 @@ namespace Cookery.Web.Middlewares
                                   "Cook and stir sausage in a skillet over medium-high heat until browned and cooked through, 5 to 10 minutes; drain fat. Spoon sausage into dough cups. Whisk eggs, milk, salt, and pepper together in a bowl until well-beaten.Pour egg mixture into each dough cup, filling each just below the top of the biscuit dough.Sprinkle Cheddar cheese on top of egg mixture." +
                                   "Bake in the preheated oven until eggs are set and biscuit dough is golden, 15 to 18 minutes.",
                     PhotoUrl = "breakfast_cups.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -706,6 +714,7 @@ namespace Cookery.Web.Middlewares
                                   "Melt butter in skillet. Crack eggs into pan, being careful not to break yolks.Place tomato slices, mushrooms, and bread in pan.Fry gently, stirring mushrooms and tomatoes occasionally. Keep everything separate.Turn bread over to brown on both sides." +
                                   "When egg whites are set, but yolks are still runny, dish half of everything onto each of 2 warmed plates, and serve immediately.",
                     PhotoUrl = "irish_breakfast.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -767,6 +776,7 @@ namespace Cookery.Web.Middlewares
                     Description = "In a medium bowl, mix together parsley, basil, oregano, capers, garlic and olive oil." +
                                   "On a serving platter, arrange mozzarella cheese slices and tomato slices in alternating layers. Top with roasted red peppers. Drizzle with the herb and olive oil mixture. Cover and chill in the refrigerator 30 minutes before sprinkling with crushed red pepper and serving.",
                     PhotoUrl = "mozzarela_appetizer.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -822,6 +832,7 @@ namespace Cookery.Web.Middlewares
                                   "Arrange bread slices on a cookie sheet. Place 1 tablespoon of the mixture on each slice. Sprinkle the bread slice liberally with lemon pepper spice (this is the key ingredient, so don't be shy with the spice!)." +
                                   "Broil for less than two minutes.",
                     PhotoUrl = "Janet_appetizer.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -874,6 +885,7 @@ namespace Cookery.Web.Middlewares
                     CookingTime = "5 min",
                     Description = "In a pitcher, combine apricot nectar, orange juice, and lemon juice. Serve chilled.",
                     PhotoUrl = "triple_fruit_drink.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct
@@ -911,6 +923,7 @@ namespace Cookery.Web.Middlewares
                     Description = "Have the fruit, rum, wine, and orange juice well chilled. Slice the lemon, lime and orange into thin rounds and place in a large glass pitcher. Pour in the rum and sugar. Chill in refrigerator for 2 hours to develop the flavors." +
                                   "When ready to serve, crush the fruit lightly with a wooden spoon and stir in the wine and orange juice. Adjust sweetness to taste.",
                     PhotoUrl = "spanish_sangria.png",
+                    Date = DateTime.Now,
                     Products = new List<RecipeProduct>
                     {
                         new RecipeProduct

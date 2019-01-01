@@ -1,6 +1,7 @@
 ﻿
 @using Cookery.Services
 
+
 <!DOCTYPE html>
 <html>
 
@@ -63,7 +64,7 @@
             <div class="container">
                 <!--Logo-->
                 <div id="logo">
-                    <a href="index.html" class="logo" data-dark-logo="/images/cookery-logo.png">
+                    <a href="/" class="logo" data-dark-logo="/images/cookery-logo.png">
                         <img src="/images/cookery-logo.png" alt="Cookery Logo">
                     </a>
                 </div>
@@ -111,16 +112,17 @@
                         <nav>
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li class="dropdown"><a href="#">Recipes</a>
+                                <li class="dropdown">
+                                    <a href="#">Recipes</a>
                                     <ul class="dropdown-menu">
                                         <li><a asp-controller="Recipe" asp-action="AllRecipes">All Recipes</a></li>
-                                        
+
                                         @if (this.User.IsInRole(CookeryConstants.AdminRole))
                                         {
-                                            <li><a asp-area="Admin" asp-controller="Recipe" asp-action="ReceivedRecipes">Received Recipe</a></li>
+                                            <li><a asp-area="Admin" asp-controller="Recipe" asp-action="NotPublished">Not Published Recipes</a></li>
                                             <li><a asp-controller="Recipe" asp-action="CreateRecipe">Create Recipe</a></li>
                                         }
-                                        
+
                                         @if (this.User.IsInRole(CookeryConstants.UserRole))
                                         {
                                             <li><a asp-controller="Recipe" asp-action="MyRecipes">My Recipe</a></li>

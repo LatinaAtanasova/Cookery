@@ -31,6 +31,8 @@ namespace Cookery.Models
 
         public bool isPublished { get; set; }
 
+        public DateTime Date { get; set; }
+
         
         public string CookeryUserId { get; set; }
         public virtual CookeryUser CookeryUser { get; set; }

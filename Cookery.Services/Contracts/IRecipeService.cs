@@ -12,5 +12,9 @@ namespace Cookery.Services.Contracts
         Recipe GetRecipeById(int id);
 
         IList<Recipe> AllPublishedRecipes();
+
+        IList<Recipe> UnpublishedRecipes();
+
+        void UpdatePublishStatus(Recipe recipe, bool newstatus);
     }
 }

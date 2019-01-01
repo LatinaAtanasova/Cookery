@@ -37,11 +37,27 @@ namespace Cookery.Services.Services
         public IList<Recipe> AllPublishedRecipes()
         {
             var allPublishedRecipes = this.dbContext.Recipes
-                .Where(x => x.isPublished)
+                .Where(x => x.isPublished == true)
                 .Include(recipe => recipe.Products)
                 .ToList();
                 
             return allPublishedRecipes;
+        }
+
+        public IList<Recipe> UnpublishedRecipes()
+        {
+            var unpublishedRecipes = this.dbContext.Recipes
+                .Where(x => x.isPublished == false)
+                .Include(recipe => recipe.Products)
+                .ToList();
+
+            return unpublishedRecipes;
+        }
+
+        public void UpdatePublishStatus(Recipe recipe, bool newstatus)
+        {
+            recipe.isPublished = newstatus;
+            dbContext.SaveChanges();
         }
     }
 }

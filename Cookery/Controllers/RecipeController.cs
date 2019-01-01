@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Cookery.Models;
@@ -22,7 +23,7 @@ namespace Cookery.Web.Controllers
             this.mapper = mapper;
         }
 
-        // GET
+        [HttpGet]
         public IActionResult CreateRecipe()
         {
             return this.View();
@@ -54,34 +55,45 @@ namespace Cookery.Web.Controllers
                 }
             }
 
+            var recipe = this.mapper.Map<Recipe>(model);
+            recipe.Products = products;
 
-            var recipe = new Recipe
-            {
-                RecipeName = model.RecipeName,
-                CookeryCategory = model.CookeryCategory,
-                CookingTime = model.CookingTime,
-                Description = model.Description,
-                Products = products
-
-            };
             var recipeId = this.recipeService.CreateRecipe(recipe);
 
-            return RedirectToAction("RecipeDetails", "Recipe", recipeId);
+            return RedirectToAction("RecipeDetails", "Recipe", new {id = recipeId});
         }
 
         public IActionResult RecipeDetails(int id)
         {
             var recipe = this.recipeService.GetRecipeById(id);
 
-            var recipeModel = new RecipeViewModel
+            //var recipeModel = new RecipeViewModel
+            //{
+            //    Id = recipe.Id,
+            //    CookeryCategory = recipe.CookeryCategory,
+            //    CookingTime = recipe.CookingTime,
+            //    Description = recipe.Description,
+            //    RecipeName = recipe.RecipeName,
+            //    isPublished = recipe.isPublished
+            //};
+
+            var recipeModel = this.mapper.Map<RecipeViewModel>(recipe);
+            var recipeProductsList = new List<ProductViewModel>();
+
+            foreach (var product in recipe.Products)
             {
-                CookeryCategory = recipe.CookeryCategory,
-                CookingTime = recipe.CookingTime,
-                Description = recipe.Description,
-                RecipeName = recipe.RecipeName
-            };
+                var productModel = new ProductViewModel
+                {
+                    ProductName = product.Product.ProductName,
+                    ProductUnit = product.Product.ProductUnit
+                };
+                recipeProductsList.Add(productModel);
+            }
+
+            recipeModel.Products = recipeProductsList;
 
             //var products = recipe.Products;
+            
             return this.View(recipeModel);
         }
 

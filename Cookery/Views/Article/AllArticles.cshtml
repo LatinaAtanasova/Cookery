@@ -46,7 +46,7 @@
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@article.IssuedOn</span>
                         @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
                         <h2>
-                            <a href="#">
+                            <a asp-controller="Article" asp-action="ArticleDetails" asp-route-id="@article.Id">
                                 @article.Title
                             </a>
                         </h2>

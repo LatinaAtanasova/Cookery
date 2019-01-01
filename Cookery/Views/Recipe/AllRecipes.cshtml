@@ -44,8 +44,8 @@
                                 <span class="post-meta-category"><a href="">@recipe.CookeryCategory</a></span>
                             </div>
                             <div class="post-item-description">
-                                @*<span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
+                                <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@recipe.Date</span>
+        @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
                                 <h2>
                                     <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id">
                                         @recipe.RecipeName

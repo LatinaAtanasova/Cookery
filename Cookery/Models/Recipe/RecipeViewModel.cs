@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Cookery.Models.Enums;
@@ -22,6 +23,11 @@ namespace Cookery.Web.Models.Recipe
 
         public string PhotoUrl { get; set; }
 
+        public bool isPublished { get; set; }
+
+        public DateTime Date = DateTime.Now;
+
         public List<ProductViewModel> Products { get; set; }
+
     }
 }

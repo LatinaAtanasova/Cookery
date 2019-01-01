@@ -60,6 +60,7 @@ namespace Cookery.Web
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<CookeryDbContext>();
 
+            services.AddSession(options => { options.Cookie.HttpOnly = true; });
             services.AddMvc(
                 options =>
                 {
@@ -71,6 +72,8 @@ namespace Cookery.Web
             {
                 config.CreateMap<RegisterViewModel, CookeryUser>();
                 config.CreateMap<Recipe, RecipeViewModel>()
+                    .ForMember(dest => dest.Products, opt => opt.Ignore());
+                config.CreateMap<RecipeViewModel, Recipe>()
                     .ForMember(dest => dest.Products, opt => opt.Ignore());
 
                 config.CreateMap<ProductViewModel, Product>();
@@ -106,6 +109,7 @@ namespace Cookery.Web
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

@@ -1,4 +1,6 @@
-﻿@model Cookery.Web.Models.Recipe.RecipeViewModel
+﻿@using Cookery.Services
+
+@model Cookery.Web.Models.Recipe.RecipeViewModel
 
 @{
     ViewBag.Title = "title";
@@ -7,7 +9,159 @@
 
 <h2>@Model.RecipeName</h2>
 
-
 @Model.CookeryCategory
 @Model.CookingTime
 @Model.Description
+
+
+<!-- Page Content -->
+<section id="page-content">
+    <div class="container">
+        <div class="row">
+            <!-- content -->
+            <div class="content col-lg-9">
+                <!-- Blog -->
+                <div id="blog" class="single-post">
+                    <!-- Post single item-->
+                    <div class="post-item">
+                        <div class="post-item-wrap">
+                            @*<div class="post-image">
+                                    <a href="#">
+                                        <img alt="" src="images/blog/1.jpg">
+                                    </a>
+                                </div>*@
+                            <form class="form-inline" method="post" asp-area="Admin" asp-route-id="@Model.Id" asp-controller="Recipe" asp-action="ChangePublishStatus">
+
+                                <div class="post-item-description">
+                                    <h2>@Model.RecipeName</h2>
+                                    <div class="post-meta">
+
+                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@Model.Date</span>
+                                        @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
+                                        <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>@Model.CookeryCategory</a></span>
+                                    </div>
+                                    <p>@Model.Description</p>
+
+                                </div>
+
+                                <div class="post-item-description">
+
+                                    <h4>Products</h4>
+
+                                    @foreach (var product in Model.Products)
+                                    {
+
+                                        <div class="post-meta">
+
+                                            <span class="post-meta-date">@*<i class="fa fa-calendar-o"></i>*@@product.ProductName</span>
+                                            @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
+                                        <span class="post-meta-category">@product.ProductUnit</span>
+                                        </div>
+
+
+                                        @*<div class="col-lg-6">*@
+                                            @*<label asp-for="@product.ProductName" class="sr-only"></label>*@
+                                            @*<p>Product Name: @product.ProductName</p>*@
+                                            @*<input asp-for="@product.ProductName" type="text" value="" placeholder="Product Name" class="form-control">*@
+                                            @*<span asp-validation-for="@product.ProductName" class="text-danger"></span>*@
+                                        @*</div>
+
+                                        <div class="col-lg-6 form-group">*@
+                                            @*<label asp-for="@product.ProductUnit" class="sr-only">Product Unit</label>*@
+                                            @*<p>Product Unit: @product.ProductUnit</p>*@
+
+                                            @*<input asp-for="@product.ProductUnit" type="text" value="" placeholder="Product Unit" class="form-control">*@
+                                            @*<span asp-validation-for="@product.ProductUnit" class="text-danger"></span>*@
+                                        @*</div>*@
+
+                                    }
+                                </div>
+
+                                <div class="post-item-description">
+                                    @if (this.User.IsInRole(CookeryConstants.AdminRole))
+                                    {
+                                        if (@Model.isPublished == false)
+                                        {
+                                            <div class="form-check" style="justify-content:left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false" checked="checked">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                      font-size: 1em;
+                                      font-style: normal;
+                                      font-weight: 400;
+                                      text-transform: none;
+                                      line-height: 1.6;
+                                      letter-spacing: 0;
+                                      color: #646464">
+                                                    Not Published
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="justify-content:left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                             font-size: 1em;
+                                                                                             font-style: normal;
+                                                                                             font-weight: 400;
+                                                                                             text-transform: none;
+                                                                                             line-height: 1.6;
+                                                                                             letter-spacing: 0;
+                                                                                             color: #646464">
+                                                    Published
+                                                </label>
+                                            </div>
+
+                                        }
+                                        if (@Model.isPublished == true)
+                                        {
+                                            <div class="form-check" style="justify-content:left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                    font-size: 1em;
+                                                                                                                                                    font-style: normal;
+                                                                                                                                                    font-weight: 400;
+                                                                                                                                                    text-transform: none;
+                                                                                                                                                    line-height: 1.6;
+                                                                                                                                                    letter-spacing: 0;
+                                                                                                                                                    color: #646464">
+                                                    Not Published
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="justify-content:left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true" checked="checked">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                             font-size: 1em;
+                                                                                             font-style: normal;
+                                                                                             font-weight: 400;
+                                                                                             text-transform: none;
+                                                                                             line-height: 1.6;
+                                                                                             letter-spacing: 0;
+                                                                                             color: #646464">
+                                                    Published
+                                                </label>
+                                            </div>
+                                        }
+
+
+                                        <div class="col-lg-12 form-group">
+                                            <button class="btn" type="submit">Change State</button>
+                                            <input type="hidden" name="Id" asp-route-id="@Model.Id" asp-for="Id" value="@Model.Id" />
+
+
+                                        </div>
+                                    }
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end: Post single item-->
+            </div>
+
+        </div>
+        <!-- end: content -->
+
+    </div>
+ 
+</section>
+<!-- end: Page Content -->
