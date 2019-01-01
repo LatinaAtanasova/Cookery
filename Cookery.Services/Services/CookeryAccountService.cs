@@ -68,5 +68,17 @@ namespace Cookery.Services.Services
                 return false;
             }
         }
+
+        public CookeryUser GetUserById(string userId)
+        {
+            var id = this.dbContext.Users.FirstOrDefault(x => x.Id == userId);
+            return id;
+        }
+
+        public void AddRecipeAsFavourite(CookeryUser user, Recipe recipe)
+        {
+            user.MyRecipes.Add(recipe);
+            dbContext.SaveChanges();
+        }
     }
 }

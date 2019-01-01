@@ -4,8 +4,10 @@ using System.Linq;
 using AutoMapper;
 using Cookery.Models;
 using Cookery.Services.Contracts;
+using Cookery.Web.Models.Error;
 using Cookery.Web.Models.Product;
 using Cookery.Web.Models.Recipe;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite.Internal.UrlActions;
 
@@ -15,12 +17,18 @@ namespace Cookery.Web.Controllers
     {
         private readonly IRecipeService recipeService;
         private readonly IMapper mapper;
+        private readonly UserManager<CookeryUser> userManager;
+        private readonly ICookeryAccountService cookeryAccountService;
 
         public RecipeController(IRecipeService recipeService,
-                                 IMapper mapper)
+                                IMapper mapper,
+                               UserManager<CookeryUser> userManager,
+                                ICookeryAccountService cookeryAccountService)
         {
             this.recipeService = recipeService;
             this.mapper = mapper;
+            this.userManager = userManager;
+            this.cookeryAccountService = cookeryAccountService;
         }
 
         [HttpGet]
@@ -121,7 +129,51 @@ namespace Cookery.Web.Controllers
 
         public IActionResult MyRecipes()
         {
-            return this.View();
+            var userId = userManager.GetUserId(this.User);
+           
+            var currentUser = this.cookeryAccountService.GetUserById(userId);
+            var userFavouriteRecipes = currentUser.MyRecipes;
+
+            if (userFavouriteRecipes.Count == 0)
+            {
+                var errorModel = new ErrorMessageViewModel();
+                errorModel.Message = "You don't have favourite recipes!";
+
+                return this.RedirectToAction("ErrorMessageResult", "Error", errorModel);
+            }
+
+            else
+            {
+                var recipeModels = new List<RecipeViewModel>();
+
+                foreach (var recipe in userFavouriteRecipes)
+                {
+                    var products = recipe.Products.Select(x => new ProductViewModel
+                    {
+                        ProductName = x.Product.ProductName,
+                        ProductUnit = x.Product.ProductUnit
+                    }).ToList();
+
+                    var recipeModel = this.mapper.Map<RecipeViewModel>(recipe);
+                    recipeModel.Products = products;
+
+                    recipeModels.Add(recipeModel);
+                }
+
+                return this.View(recipeModels);
+
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AddToFavourite(RecipeViewModel model)
+        {
+            var recipe = this.recipeService.GetRecipeById(model.Id);
+            var currentUserId = userManager.GetUserId(this.User);
+            var currentUser = this.cookeryAccountService.GetUserById(currentUserId);
+            cookeryAccountService.AddRecipeAsFavourite(currentUser, recipe);
+
+            return RedirectToAction("MyRecipes", "Recipe", new {id = currentUserId});
         }
     }
 }

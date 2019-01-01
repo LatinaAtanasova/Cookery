@@ -25,7 +25,7 @@ namespace Cookery.Web.Models.Recipe
 
         public bool isPublished { get; set; }
 
-        public DateTime Date = DateTime.Now;
+  public DateTime Date = DateTime.Now;
 
         public List<ProductViewModel> Products { get; set; }
 

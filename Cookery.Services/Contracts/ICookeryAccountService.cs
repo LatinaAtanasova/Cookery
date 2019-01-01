@@ -11,5 +11,9 @@ namespace Cookery.Services.Contracts
        void RegisterUser(CookeryUser cookeryUser, string userPassword);
 
         bool IsValidUser(CookeryUser cookeryUser, string userPassword);
+
+        CookeryUser GetUserById(string userId);
+
+        void AddRecipeAsFavourite(CookeryUser user, Recipe recipe);
     }
 }
