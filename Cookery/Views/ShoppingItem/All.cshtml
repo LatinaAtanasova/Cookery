@@ -1,4 +1,6 @@
-﻿@model IList<Cookery.Web.Models.ShoppingItems.ShoppingItemViewModel>
+﻿@using Cookery.Services
+@using Cookery.Web.Models.ShoppingItems
+@model IList<Cookery.Web.Models.ShoppingItems.ShoppingItemViewModel>
 
 @{
     ViewBag.Title = "Cookery Books and Magazines";
@@ -77,6 +79,27 @@
                                 <div class="product-price">
                                     <ins>&#8364 @Model[i].Price</ins>
                                 </div>
+                                @if (this.User.IsInRole(CookeryConstants.UserRole))
+                                {
+                                    if (@Model[i].Quantity > 0)
+                                    {
+                                        <div class="product-title">
+                                            <h3>Available</h3>
+                                        </div>
+                                        <div class="product-price">
+                                            @await Html.PartialAsync("_ShoppingItemPartial", new ShoppingItemOrderViewModel
+                                            {
+                                                ShoppingItemId = @Model[i].Id
+                                            })
+                                        </div>
+                                    }
+                                    if (@Model[i].Quantity == 0)
+                                    {
+                                        <div class="product-title">
+                                            <h3>Not Available</h3>
+                                        </div>
+                                    }
+                                }
                                 @*<div class="product-rate">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>

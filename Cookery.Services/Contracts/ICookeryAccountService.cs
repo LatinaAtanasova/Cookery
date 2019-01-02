@@ -15,5 +15,6 @@ namespace Cookery.Services.Contracts
         CookeryUser GetUserById(string userId);
 
         void AddRecipeAsFavourite(CookeryUser user, Recipe recipe);
+
     }
 }

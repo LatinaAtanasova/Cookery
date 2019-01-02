@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using Cookery.Models;
 using Cookery.Services.Contracts;
+using Cookery.Web.Models.Error;
 using Cookery.Web.Models.ShoppingItems;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookery.Web.Controllers
@@ -10,12 +13,19 @@ namespace Cookery.Web.Controllers
     {
         private readonly IShoppingItemService shoppingItemService;
         private readonly IMapper mapper;
+        private readonly UserManager<CookeryUser> userManager;
+        private readonly ICookeryAccountService cookeryAccountService;
+
 
         public ShoppingItemController(IShoppingItemService shoppingItemService,
-                                      IMapper mapper)
+                                      IMapper mapper,
+                                      UserManager<CookeryUser> userManager,
+                                      ICookeryAccountService cookeryAccountService)
         {
             this.shoppingItemService = shoppingItemService;
             this.mapper = mapper;
+            this.userManager = userManager;
+            this.cookeryAccountService = cookeryAccountService;
         }
         // GET
         public IActionResult All()
@@ -32,6 +42,7 @@ namespace Cookery.Web.Controllers
             return this.View(shoppingItemCollection);
         }
 
-        
+
+
     }
 }

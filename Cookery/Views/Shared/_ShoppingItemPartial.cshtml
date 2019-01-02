@@ -1,0 +1,15 @@
+﻿@model Cookery.Web.Models.ShoppingItems.ShoppingItemOrderViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<form asp-controller="Order" asp-action="AddOrder" method="post">
+    <label asp-for="Quantity" class="sr-only">First Quantity</label>
+    <input asp-for="Quantity" type="text" value="" placeholder="Quantity" class="form-control">
+    <span asp-validation-for="Quantity" class="text-danger"></span>
+    
+    <button class="btn" type="submit">Order</button>
+    <input class="hidden" asp-for="ShoppingItemId" value="@Model.ShoppingItemId"/>
+    <button type="reset" class="btn btn-danger m-l-10">Cancel</button>
+</form>

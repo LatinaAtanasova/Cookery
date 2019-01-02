@@ -9,6 +9,8 @@ namespace Cookery.Services.Contracts
     {
         IList<ShoppingItem> GetAllShoppingItems();
 
-        
+        bool UpdateQuantity(int shoppingId, int quantity);
+
+        ShoppingItem GetShoppingItemById(int shoppingId);
     }
 }

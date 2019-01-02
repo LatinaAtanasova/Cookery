@@ -16,8 +16,10 @@ using Cookery.Services.Contracts;
 using Cookery.Services.Services;
 using Cookery.Web.Middlewares.MiddlewareExtensions;
 using Cookery.Web.Models.Account;
+using Cookery.Web.Models.Order;
 using Cookery.Web.Models.Product;
 using Cookery.Web.Models.Recipe;
+using Cookery.Web.Models.ShoppingItems;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNet.Identity;
@@ -77,12 +79,18 @@ namespace Cookery.Web
                     .ForMember(dest => dest.Products, opt => opt.Ignore());
 
                 config.CreateMap<ProductViewModel, Product>();
+                config.CreateMap<OrderViewModel, Order>()
+                    .ForMember(dest => dest.ShoppingItem, opt => opt.Ignore())
+                    .ForMember(dest => dest.CookeryUser, opt => opt.Ignore());
+                config.CreateMap<ShoppingItemViewModel, ShoppingItem>()
+                    .ForMember(dest => dest.User, opt => opt.Ignore());
 
             });
             services.AddScoped<ICookeryAccountService, CookeryAccountService>();
             services.AddScoped<IShoppingItemService, ShoppingItemService>();
             services.AddScoped<ICookeryArticleService, CookeryArticleService>();
             services.AddScoped<IRecipeService, RecipeService>();
+            services.AddScoped<IOrderService, OrderService>();
 
         }
 

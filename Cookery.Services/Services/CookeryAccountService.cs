@@ -71,8 +71,8 @@ namespace Cookery.Services.Services
 
         public CookeryUser GetUserById(string userId)
         {
-            var id = this.dbContext.Users.FirstOrDefault(x => x.Id == userId);
-            return id;
+            var currentUser = this.dbContext.Users.FirstOrDefault(x => x.Id == userId);
+            return currentUser;
         }
 
         public void AddRecipeAsFavourite(CookeryUser user, Recipe recipe)
@@ -80,5 +80,6 @@ namespace Cookery.Services.Services
             user.MyRecipes.Add(recipe);
             dbContext.SaveChanges();
         }
+
     }
 }

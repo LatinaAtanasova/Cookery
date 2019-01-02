@@ -1,0 +1,117 @@
+﻿@model ICollection<Cookery.Web.Models.Order.OrderViewModel>
+@{
+    ViewData["Title"] = "MyOrders";
+}
+
+<h2>My Orders List</h2>
+
+<!-- Page title -->
+<section id="page-title" @*data-parallax-image="images/parallax/5.jpg"*@>
+    <div class="container">
+        <div class="page-title">
+            <h1>Wishlist</h1>
+            <span>Your wishlist!</span>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                </li>
+                <li class="active">
+                    <a href="#">Wishlist</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- end: Page title -->
+<!-- SHOP WISHLIST -->
+
+@if(@Model.Count == 0)
+    {
+
+    }<!-- SHOP WISHLIST -->
+<section id="shop-cart">
+    <div class="container">
+        <div class="p-t-10 m-b-20 text-center">
+            <div class="heading-fancy heading-line text-center">
+                <h4>Your Wishlist is currently empty.</h4>
+            </div>
+            <a class="btn icon-left" href="#"><span>Return To Shop</span></a>
+        </div>
+    </div>
+</section>
+<!-- end: SHOP WISHLIST -->
+
+@if(@Model.Count > 0)
+{
+   <section id="shop-wishlist">
+    <div class="container">
+        <div class="shop-cart">
+            <div class="table table-sm table-striped table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="cart-product-remove">N</th>
+                            <th class="cart-product-thumbnail">Shopping Item</th>
+                            <th class="cart-product-name">Type</th>
+                            <th class="cart-product-name">Quantity</th>
+                            <th class="cart-product-name">Price</th>
+                            <th class="cart-product-name">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{
+                        var counter = 1;
+                    }
+                    @foreach (var order in @Model)
+                    {
+                        <tr>
+                            <td class="cart-product-remove">
+                                <a href="#"><i class="fa fa-times">@counter</i></a>
+                            </td>
+
+                            <td class="cart-product-thumbnail">
+                                <a href="#">
+                                    <img src="images/shop/products/1.jpg" alt="Bolt Sweatshirt">
+                                </a>
+                                <div class="cart-product-thumbnail-name">@order.ShoppingItem.Name</div>
+                            </td>
+
+                            <td class="cart-product-description">
+
+                                <p>
+                                    @order.ShoppingItem.ShoppingType
+                                </p>
+                            </td>
+
+                            <td class="cart-product-price">
+                                <span class="amount">@order.Quantity</span>
+                            </td>
+                            <td class="cart-product-price">
+                                <span class="amount">@order.ShoppingItem.Price</span>
+                            </td>
+                            <td class="cart-product-price">
+                                <span class="amount">(@order.Quantity)*(@order.ShoppingItem.Price)</span>
+                            </td>
+
+                        </tr>
+                        counter++;
+                    }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+    
+    
+}
+<!-- end: SHOP WISHLIST -->
