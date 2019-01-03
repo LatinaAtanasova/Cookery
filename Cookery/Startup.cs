@@ -14,6 +14,7 @@ using Cookery.Data;
 using Cookery.Models;
 using Cookery.Services.Contracts;
 using Cookery.Services.Services;
+using Cookery.Web.Logs;
 using Cookery.Web.Middlewares.MiddlewareExtensions;
 using Cookery.Web.Models.Account;
 using Cookery.Web.Models.Order;
@@ -23,6 +24,7 @@ using Cookery.Web.Models.ShoppingItems;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNet.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace Cookery.Web
 {
@@ -47,7 +49,8 @@ namespace Cookery.Web
 
             services.AddDbContext<CookeryDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection"))
+                );
 
 
             services.AddIdentity<CookeryUser, IdentityRole>(opt =>
@@ -67,6 +70,7 @@ namespace Cookery.Web
                 options =>
                 {
                     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                 
 
                 }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -91,6 +95,8 @@ namespace Cookery.Web
             services.AddScoped<ICookeryArticleService, CookeryArticleService>();
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IOrderService, OrderService>();
+            
+            //services.AddLogging();
 
         }
 
@@ -98,8 +104,11 @@ namespace Cookery.Web
         public void Configure(
             IApplicationBuilder app, 
             IHostingEnvironment env,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider,
+            ILoggerFactory loggingFactory, CookeryDbContext dbContext)
         {
+            loggingFactory.AddContext(LogLevel.Error, dbContext);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

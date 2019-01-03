@@ -19,6 +19,10 @@ namespace Cookery.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    logging.AddEventSourceLogger();
+                })
                 .UseStartup<Startup>();
     }
 }

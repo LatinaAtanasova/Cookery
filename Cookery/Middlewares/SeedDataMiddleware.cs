@@ -34,23 +34,23 @@ namespace Cookery.Web.Middlewares
 
             if (!dbContext.ShoppingItems.Any())
             {
-                this.SeedShoppingItems(dbContext);
+                await this.SeedShoppingItems(dbContext);
             }
 
             if (!dbContext.CookeryArticles.Any())
             {
-                this.SeedCookeryArticles(dbContext);
+                await this.SeedCookeryArticles(dbContext);
             }
 
             if (!dbContext.Recipes.Any())
             {
-                this.SeedRecipes(dbContext);
+                await this.SeedRecipes(dbContext);
             }
 
             await this.next(context);
         }
 
-        private void SeedRecipes(CookeryDbContext dbContext)
+        private async Task SeedRecipes(CookeryDbContext dbContext)
         {
             var recipes = new List<Recipe>();
 
@@ -986,12 +986,12 @@ namespace Cookery.Web.Middlewares
                 }
             });
 
-            dbContext.Recipes.AddRange(recipes);
-            dbContext.SaveChanges();
+           await dbContext.Recipes.AddRangeAsync(recipes);
+            await dbContext.SaveChangesAsync();
 
         }
 
-        private void SeedCookeryArticles(CookeryDbContext dbContext)
+        private async Task SeedCookeryArticles(CookeryDbContext dbContext)
         {
             List<CookeryArticle> articles = new List<CookeryArticle>();
             articles.AddRange(new List<CookeryArticle>
@@ -1056,11 +1056,11 @@ namespace Cookery.Web.Middlewares
                 }
             });
 
-            dbContext.CookeryArticles.AddRange(articles);
-            dbContext.SaveChanges();
+            await dbContext.CookeryArticles.AddRangeAsync(articles);
+            await dbContext.SaveChangesAsync();
         }
 
-        private void SeedShoppingItems(CookeryDbContext dbContext)
+        private async Task SeedShoppingItems(CookeryDbContext dbContext)
         {
             List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
             shoppingItems.AddRange(new List<ShoppingItem>
@@ -1127,8 +1127,8 @@ namespace Cookery.Web.Middlewares
                 }
             });
 
-            dbContext.ShoppingItems.AddRange(shoppingItems);
-            dbContext.SaveChanges();
+            await dbContext.ShoppingItems.AddRangeAsync(shoppingItems);
+            await dbContext.SaveChangesAsync();
         }
 
         private async Task SeedRoles(RoleManager<IdentityRole> roleManager)
