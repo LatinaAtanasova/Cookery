@@ -33,7 +33,7 @@ namespace Cookery.Web.Controllers
         }
 
 
-
+        [HttpPost]
         public IActionResult AddOrder(ShoppingItemOrderViewModel model)
         {
             if (ModelState.IsValid)

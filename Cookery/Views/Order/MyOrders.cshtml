@@ -3,47 +3,24 @@
     ViewData["Title"] = "MyOrders";
 }
 
-<h2>My Orders List</h2>
+<h3 style="text-align: center">My Orders List</h3>
 
-<!-- Page title -->
-<section id="page-title" @*data-parallax-image="images/parallax/5.jpg"*@>
-    <div class="container">
-        <div class="page-title">
-            <h1>Wishlist</h1>
-            <span>Your wishlist!</span>
-        </div>
-        <div class="breadcrumb">
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Shop</a>
-                </li>
-                <li class="active">
-                    <a href="#">Wishlist</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- end: Page title -->
 <!-- SHOP WISHLIST -->
 
 @if(@Model.Count == 0)
     {
-
-    }<!-- SHOP WISHLIST -->
-<section id="shop-cart">
-    <div class="container">
-        <div class="p-t-10 m-b-20 text-center">
-            <div class="heading-fancy heading-line text-center">
-                <h4>Your Wishlist is currently empty.</h4>
+        <section id="shop-cart">
+            <div class="container">
+                <div class="p-t-10 m-b-20 text-center">
+                    <div class="heading-fancy heading-line text-center">
+                        <h4>Your Wishlist is currently empty.</h4>
+                    </div>
+                    <a class="btn icon-left" href="#"><span>Return To Shop</span></a>
+                </div>
             </div>
-            <a class="btn icon-left" href="#"><span>Return To Shop</span></a>
-        </div>
-    </div>
-</section>
+        </section>
+    }<!-- SHOP WISHLIST -->
+
 <!-- end: SHOP WISHLIST -->
 
 @if(@Model.Count > 0)
@@ -71,21 +48,18 @@
                     {
                         <tr>
                             <td class="cart-product-remove">
-                                <a href="#"><i class="fa fa-times">@counter</i></a>
+                                <a class="disabled" href="#">@counter</a>
                             </td>
 
                             <td class="cart-product-thumbnail">
-                                <a href="#">
+                                @*<a href="#">
                                     <img src="images/shop/products/1.jpg" alt="Bolt Sweatshirt">
-                                </a>
+                                </a>*@
                                 <div class="cart-product-thumbnail-name">@order.ShoppingItem.Name</div>
                             </td>
 
                             <td class="cart-product-description">
-
-                                <p>
-                                    @order.ShoppingItem.ShoppingType
-                                </p>
+                                 <span class="amount">@order.ShoppingItem.ShoppingType</span>
                             </td>
 
                             <td class="cart-product-price">
@@ -94,8 +68,11 @@
                             <td class="cart-product-price">
                                 <span class="amount">@order.ShoppingItem.Price</span>
                             </td>
+                            @{
+                                var total = (order.Quantity) * (order.ShoppingItem.Price);
+                            }
                             <td class="cart-product-price">
-                                <span class="amount">(@order.Quantity)*(@order.ShoppingItem.Price)</span>
+                                <span class="amount">&#8364 @total</span>
                             </td>
 
                         </tr>
