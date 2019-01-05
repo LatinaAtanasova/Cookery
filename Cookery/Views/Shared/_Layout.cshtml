@@ -27,15 +27,15 @@
     <link href="/css/bakery-style.css" media="screen" rel="stylesheet" type="text/css" />
 
     <environment include="Development">
-            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
-        </environment>
-        <environment exclude="Development">
-            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        </environment>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
 </head>
 
 <body>
@@ -100,24 +100,32 @@
                                         @*<li> <a asp-controller="ShoppingItem" asp-action="AllMagazines">Cookery Magazines</a> </li>*@
                                     </ul>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#">Orders</a>
-                                    <ul class="dropdown-menu">
 
-                                        @if (this.User.IsInRole(CookeryConstants.AdminRole))
-                                        {
+
+                                @if (this.User.IsInRole(CookeryConstants.AdminRole))
+                                {
+                                    <li class="dropdown">
+                                        <a href="#">Orders</a>
+                                        <ul class="dropdown-menu">
                                             <li><a asp-area="Admin" asp-controller="Order" asp-action="AllOrders">All Orders</a></li>
-                                        }
+                                        </ul>
+                                    </li>
+                                }
 
-                                        @if (this.User.IsInRole(CookeryConstants.UserRole))
-                                        {
+                                @if (this.User.IsInRole(CookeryConstants.UserRole))
+                                {
+                                    <li class="dropdown">
+                                        <a href="#">Orders</a>
+                                        <ul class="dropdown-menu">
                                             <li><a asp-controller="Order" asp-action="MyOrders">My Orders</a></li>
-                                        }
+                                        </ul>
+                                    </li>
+                                }
 
-                                    </ul>
-                                </li>
 
-                            </ul>
+
+
+
                         </nav>
                     </div>
                 </div>

@@ -7,8 +7,6 @@
     Layout = "_Layout";
 }
 
-<h2 style="text-align: center">@Model.RecipeName</h2>
-
 
 <!-- Page Content -->
 <section id="page-content">
@@ -21,11 +19,6 @@
                     <!-- Post single item-->
                     <div class="post-item">
                         <div class="post-item-wrap">
-                            @*<div class="post-image">
-                                    <a href="#">
-                                        <img alt="" src="images/blog/1.jpg">
-                                    </a>
-                                </div>*@
                             @if (this.User.IsInRole(CookeryConstants.AdminRole))
                             {
                                 <form class="form-inline" method="post" asp-area="Admin" asp-route-id="@Model.Id" asp-controller="Recipe" asp-action="ChangePublishStatus">
@@ -35,7 +28,7 @@
                                         <div class="post-meta">
 
                                             <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@Model.Date</span>
-                                            <span class="post-meta-category"><a class="disabled" style="pointer-events: none" href=""><i class="fa fa-tag"></i>@Model.CookeryCategory</a></span>
+                                            <span class="post-meta-category"><a class="disabled" style="pointer-events: none" asp-controller="Recipe" asp-action="GetRecipesByCategory" asp-route-category="@Model.CookeryCategory"><i class="fa fa-tag"></i>@Model.CookeryCategory</a></span>
 
                                         </div>
                                         <p>@Model.Description</p>
@@ -58,36 +51,36 @@
                                     </div>
 
                                     <div class="post-item-description">
-                                        if (@Model.isPublished == false)
+                                        @if (@Model.isPublished == false)
                                         {
-                                        <div class="form-check" style="justify-content: left">
-                                            <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false" checked="checked">
-                                            <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
-                                                Not Published
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="justify-content: left">
-                                            <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true">
-                                            <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
-                                                Published
-                                            </label>
-                                        </div>
+                                            <div class="form-check" style="justify-content: left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false" checked="checked">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                                    Not Published
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="justify-content: left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                                    Published
+                                                </label>
+                                            </div>
 
                                         }
-                                        if (@Model.isPublished == true)
+                                        @if (@Model.isPublished == true)
                                         {
-                                        <div class="form-check" style="justify-content: left">
-                                            <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false">
-                                            <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
-                                                Not Published
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="justify-content: left">
-                                            <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true" checked="checked">
-                                            <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
-                                                Published
-                                            </label>
-                                        </div>
+                                            <div class="form-check" style="justify-content: left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="false">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                                    Not Published
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="justify-content: left">
+                                                <input class="form-check-input" type="radio" name="isPublished" id="isPublished" value="true" checked="checked">
+                                                <label class="form-check-label" for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                                    Published
+                                                </label>
+                                            </div>
                                         }
 
 
@@ -101,7 +94,7 @@
                                 </form>
 
                             }
-                            @if (this.User.IsInRole(CookeryConstants.UserRole))
+                            else if (this.User.IsInRole(CookeryConstants.UserRole))
                             {
                                 <form class="form-inline" method="post" asp-route-id="@Model.Id" asp-area="" asp-controller="Recipe" asp-action="AddToFavourite">
 
@@ -144,8 +137,38 @@
 
 
                                     </div>
-                            </form>
-                        }
+                                </form>
+                            }
+                            else
+                            {
+                            <div class="post-item-description">
+                                <h2>@Model.RecipeName</h2>
+                                <div class="post-meta">
+
+                                    <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@Model.Date</span>
+                                    <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>@Model.CookeryCategory</a></span>
+
+                                    
+                                </div>
+                                <p>@Model.Description</p>
+
+                            </div>
+
+                            <div class="post-item-description">
+
+                                <h4>Products</h4>
+
+                                @foreach (var product in Model.Products)
+                                {
+
+                                    <div class="post-meta">
+
+                                        <span class="post-meta-date">@product.ProductName</span>
+                                        <span class="post-meta-category">@product.ProductUnit</span>
+                                    </div>
+                                }
+                            </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -154,7 +177,7 @@
 
         </div>
         <!-- end: content -->
-        </div>
+    </div>
 
-    </section>
-    <!-- end: Page Content -->
+</section>
+<!-- end: Page Content -->

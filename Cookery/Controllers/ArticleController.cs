@@ -2,6 +2,7 @@
 using AutoMapper;
 using Cookery.Services.Contracts;
 using Cookery.Web.Models.Articles;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookery.Web.Controllers
@@ -19,7 +20,7 @@ namespace Cookery.Web.Controllers
             this.mapper = mapper;
         }
 
-        // GET
+        [AllowAnonymous]
         public IActionResult AllArticles()
         {
             var articles = this.service.AllArticles();
@@ -33,7 +34,8 @@ namespace Cookery.Web.Controllers
             
             return this.View(articleModels);
         }
-
+        
+        [AllowAnonymous]
         public IActionResult ArticleDetails(int id)
         {
             var article = this.service.GetArticle(id);

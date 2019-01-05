@@ -6,6 +6,7 @@ using AutoMapper;
 using Cookery.Services.Contracts;
 using Cookery.Web.Models.Product;
 using Cookery.Web.Models.Recipe;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookery.Web.Areas.Admin.Controllers
@@ -21,6 +22,7 @@ namespace Cookery.Web.Areas.Admin.Controllers
             this.mapper = mapper;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult NotPublished()
         {
             var unpublishedRecipes = this.recipeService.UnpublishedRecipes().ToList();
@@ -44,6 +46,7 @@ namespace Cookery.Web.Areas.Admin.Controllers
             return this.View(recipeModels);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult ChangePublishStatus(RecipeViewModel model)
         {
             var recipeId = model.Id;

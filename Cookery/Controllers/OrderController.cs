@@ -8,6 +8,7 @@ using Cookery.Services.Contracts;
 using Cookery.Web.Models.Error;
 using Cookery.Web.Models.Order;
 using Cookery.Web.Models.ShoppingItems;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OrderViewModel = Cookery.Web.Models.Order.OrderViewModel;
@@ -34,6 +35,7 @@ namespace Cookery.Web.Controllers
 
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult AddOrder(ShoppingItemOrderViewModel model)
         {
             if (ModelState.IsValid)
@@ -74,6 +76,7 @@ namespace Cookery.Web.Controllers
 
         }
 
+        [Authorize(Roles ="User")]
         public IActionResult MyOrders()
         {
             var currentUser = userManager.GetUserAsync(this.User).Result;

@@ -5,6 +5,7 @@ using Cookery.Services.Contracts;
 using Cookery.Services.Services;
 using Cookery.Web.Models;
 using Cookery.Web.Models.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,7 @@ namespace Cookery.Web.Controllers
             this.signIn = signIn;
         }
         
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return this.View();
@@ -53,6 +55,7 @@ namespace Cookery.Web.Controllers
             }
         }
 
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return this.View();

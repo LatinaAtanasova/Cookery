@@ -1,7 +1,85 @@
-﻿
+﻿@model ICollection<Cookery.Web.Models.Recipe.RecipeViewModel>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core
+
+
 @{
     ViewData["Title"] = "GetRecipesByCategory";
 }
 
-<h1>GetRecipesByCategory</h1>
 
+<section id="page-content" class="sidebar-right">
+    <div class="container">
+        <div class="row">
+            <!-- post content -->
+            <div class="content col-lg-9">
+                <!-- Page title -->
+                <div class="page-title">
+                    <h1>Recipes for @ViewBag.Category</h1>
+                </div>
+                <!-- end: Page title -->
+                <!-- Blog -->
+                <div id="blog" class="post-thumbnails">
+
+                    @foreach (var recipe in ViewBag.OnePageOfRecipes)
+                    {
+                        <!-- Post item-->
+                        <div class="post-item">
+                            <div class="post-item-wrap">
+                                <div class="post-image">
+                                    <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id">
+                                        <img alt="" src="/recipes/@recipe.PhotoUrl">
+                                    </a>
+                                    <span class="post-meta-category"><a href="">@recipe.CookeryCategory</a></span>
+                                </div>
+                                <div class="post-item-description">
+                                    <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@recipe.Date</span>
+                                    @*<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>*@
+                                    <h2>
+                                        <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id">
+                                            @recipe.RecipeName
+                                        </a>
+                                    </h2>
+                                    @if (@recipe.Description.Length < 200)
+                                    {
+                                        <p>@recipe.Description</p>
+                                    }
+                                    @if (@recipe.Description.Length > 200)
+                                    {
+                                        <p>@recipe.Description.Substring(0, 200)</p>
+                                    }
+                                    @*<div class="post-author">                                     <img src="images/blog/author2.jpg">                                     <p>by <a href="#">Ardian Musliu</a> 2 days ago                                     </p>                                 </div>*@
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: Post item-->
+                    }
+                </div>
+                <!-- end: Blog -->
+                <!-- Pagination -->
+
+                @Html.PagedListPager((IPagedList)ViewBag.OnePageOfRecipes, page => Url.Action("AllRecipes", new { page }))
+                @*@bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/PagedList.css"));*@
+
+
+                @*<ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>*@
+                <!-- end: Pagination -->
+
+            </div>
+            <!-- end: post content -->
+
+        </div>
+    </div>
+</section>
+<!-- end: Content -->

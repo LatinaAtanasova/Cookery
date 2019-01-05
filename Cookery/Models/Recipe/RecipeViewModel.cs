@@ -13,19 +13,23 @@ namespace Cookery.Web.Models.Recipe
     {
         public int Id { get; set; }
 
+        [Required]
         public string RecipeName { get; set; }
 
+        [Required]
         public CookeryCategory CookeryCategory { get; set; }
 
+        [Required]
         public string CookingTime { get; set; } // in minutes
 
+        [Required]
         public string Description { get; set; } // cooking steps
 
         public string PhotoUrl { get; set; }
 
         public bool isPublished { get; set; }
 
-  public DateTime Date = DateTime.Now;
+        public DateTime Date = DateTime.Now;
 
         public List<ProductViewModel> Products { get; set; }
 

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Cookery.Models;
+using Cookery.Models.Enums;
 using Cookery.Services.Contracts;
 using Cookery.Web.Models.Error;
 using Cookery.Web.Models.Product;
 using Cookery.Web.Models.Recipe;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite.Internal.UrlActions;
@@ -106,6 +108,7 @@ namespace Cookery.Web.Controllers
             return this.View(recipeModel);
         }
 
+        [AllowAnonymous]
         public IActionResult AllRecipes(int? page)
         {
             var allRecipes = this.recipeService.AllPublishedRecipes().ToList();
@@ -134,6 +137,7 @@ namespace Cookery.Web.Controllers
             return this.View();
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult MyRecipes()
         {
             var userId = userManager.GetUserId(this.User);
@@ -183,8 +187,35 @@ namespace Cookery.Web.Controllers
             return RedirectToAction("MyRecipes", "Recipe", new {id = currentUserId});
         }
 
-        public IActionResult GetRecipesByCategory(string category)
+        public IActionResult GetRecipesByCategory(string category, int? page)
         {
+            var recipeCategory = (CookeryCategory)Enum.Parse(typeof(CookeryCategory), category);
+
+            var recipesByCategory = this.recipeService.AllPublishedRecipes()
+                                        .Where(x => x.CookeryCategory == recipeCategory).ToList();
+
+            var recipeModels = new List<RecipeViewModel>();
+
+            foreach (var recipe in recipesByCategory)
+            {
+                var products = recipe.Products.Select(x => new ProductViewModel
+                {
+                    ProductName = x.Product.ProductName,
+                    ProductUnit = x.Product.ProductUnit
+                }).ToList();
+
+                var recipeModel = this.mapper.Map<RecipeViewModel>(recipe);
+                recipeModel.Products = products;
+
+                recipeModels.Add(recipeModel);
+            }
+
+            var pageNumber = page ?? 1;
+            var onePageOfRecipes = recipeModels.ToPagedList(pageNumber, 5);
+
+            ViewBag.onePageOfRecipes = onePageOfRecipes;
+            ViewBag.Category = category;
+
             return this.View();
         }
     }

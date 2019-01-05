@@ -38,7 +38,7 @@
                                     <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-id="@recipe.Id">
                                         <img alt="" src="/recipes/@recipe.PhotoUrl">
                                     </a>
-                                    <span class="post-meta-category"><a href="">@recipe.CookeryCategory</a></span>
+                                    <span class="post-meta-category"><a asp-controller="Recipe" asp-action="GetRecipesByCategory" asp-route-category="@recipe.CookeryCategory">@recipe.CookeryCategory</a></span>
                                 </div>
                                 <div class="post-item-description">
                                     <span class="post-meta-date"><i class="fa fa-calendar-o"></i>@recipe.Date</span>
