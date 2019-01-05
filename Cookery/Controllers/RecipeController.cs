@@ -10,6 +10,7 @@ using Cookery.Web.Models.Recipe;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite.Internal.UrlActions;
+using X.PagedList;
 
 namespace Cookery.Web.Controllers
 {
@@ -105,7 +106,7 @@ namespace Cookery.Web.Controllers
             return this.View(recipeModel);
         }
 
-        public IActionResult AllRecipes()
+        public IActionResult AllRecipes(int? page)
         {
             var allRecipes = this.recipeService.AllPublishedRecipes().ToList();
 
@@ -124,7 +125,13 @@ namespace Cookery.Web.Controllers
 
                 recipeModels.Add(recipeModel);
             }
-            return this.View(recipeModels);
+
+            var pageNumber = page ?? 1;
+            var onePageOfRecipes = recipeModels.ToPagedList(pageNumber, 5);
+
+            ViewBag.onePageOfRecipes = onePageOfRecipes;
+
+            return this.View();
         }
 
         public IActionResult MyRecipes()
@@ -174,6 +181,11 @@ namespace Cookery.Web.Controllers
             cookeryAccountService.AddRecipeAsFavourite(currentUser, recipe);
 
             return RedirectToAction("MyRecipes", "Recipe", new {id = currentUserId});
+        }
+
+        public IActionResult GetRecipesByCategory(string category)
+        {
+            return this.View();
         }
     }
 }

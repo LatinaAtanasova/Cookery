@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cookery.Models;
 using Cookery.Models.Enums;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cookery.Web.Models.ShoppingItems
 {
@@ -24,5 +26,6 @@ namespace Cookery.Web.Models.ShoppingItems
 
         public ShoppingType ShoppingType { get; set; }
 
+        
     }
 }

@@ -31,5 +31,11 @@ namespace Cookery.Services.Services
             var orders = dbContext.Orders.Where(x => x.CookeryUser == currentUser).Include(x => x.ShoppingItem).ToList();
             return orders;
         }
-    }
+
+       public ICollection<Order> GetAllOrders()
+       {
+           var allOrders = dbContext.Orders.ToList();
+           return allOrders;
+       }
+   }
 }

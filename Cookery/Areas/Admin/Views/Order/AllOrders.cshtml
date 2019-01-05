@@ -1,7 +1,105 @@
-﻿
+﻿@model ICollection<Cookery.Web.Areas.Admin.Models.OrderViewAdminModel>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     ViewData["Title"] = "View";
+    Layout = "_Layout";
 }
 
-<h2>View</h2>
+<h2 style="text-align: center">All Orders</h2>
 
+
+@if (@Model.Count == 0)
+{
+    <section id="shop-cart">
+        <div class="container">
+            <div class="p-t-10 m-b-20 text-center">
+                <div class="heading-fancy heading-line text-center">
+                    <h4>No orders</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+}<!-- SHOP WISHLIST -->
+<!-- end: SHOP WISHLIST -->
+
+@if (@Model.Count > 0)
+{
+    <section id="shop-wishlist">
+        <div class="container">
+            <div class="shop-cart">
+                <div class="table table-sm table-striped table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="cart-product-remove">N</th>
+                                <th class="cart-product-name">Shopping Item</th>
+                                <th class="cart-product-name">Ordered On</th>
+                                <th class="cart-product-name">Type</th>
+                                <th class="cart-product-name">Client</th>
+                                <th class="cart-product-name">Quantity</th>
+                                <th class="cart-product-name">Price</th>
+                                <th class="cart-product-name">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var counter = 1;
+                            }
+                            @foreach (var order in @Model)
+                            {
+                                <tr>
+                                    <td class="cart-product-remove">
+                                        <a class="disabled" href="#">@counter</a>
+                                    </td>
+
+                                    <td class="cart-product-thumbnail">
+                                        @*<a href="#">
+                                                <img src="images/shop/products/1.jpg" alt="Bolt Sweatshirt">
+                                            </a>*@
+                                        <div class="cart-product-thumbnail-name">@order.ShoppingItem.Name</div>
+                                    </td>
+
+                                    <td class="cart-product-description">
+                                        <span class="amount">@order.OrderedOn</span>
+                                    </td>
+
+                                    <td class="cart-product-description">
+                                        <span class="amount">@order.ShoppingItem.ShoppingType</span>
+                                    </td>
+
+                                    <td class="cart-product-description">
+                                        <span class="amount">@order.UserName</span>
+                                    </td>
+
+                                    <td class="cart-product-price">
+                                        <span class="amount">@order.Quantity</span>
+                                    </td>
+                                    <td class="cart-product-price">
+                                        <span class="amount">@order.ShoppingItem.Price</span>
+                                    </td>
+                                    @{
+                                        var total = (order.Quantity) * (order.ShoppingItem.Price);
+                                    }
+                                    <td class="cart-product-price">
+                                        <span class="amount">&#8364 @total</span>
+                                    </td>
+
+                                </tr>
+                                counter++;
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+}
+<!-- end: SHOP WISHLIST -->

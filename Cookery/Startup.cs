@@ -14,6 +14,7 @@ using Cookery.Data;
 using Cookery.Models;
 using Cookery.Services.Contracts;
 using Cookery.Services.Services;
+using Cookery.Web.Areas.Admin.Models;
 using Cookery.Web.Logs;
 using Cookery.Web.Middlewares.MiddlewareExtensions;
 using Cookery.Web.Models.Account;
@@ -88,6 +89,10 @@ namespace Cookery.Web
                     .ForMember(dest => dest.CookeryUser, opt => opt.Ignore());
                 config.CreateMap<ShoppingItemViewModel, ShoppingItem>()
                     .ForMember(dest => dest.User, opt => opt.Ignore());
+                config.CreateMap<Order, OrderViewAdminModel>()
+                    .ForMember(dest => dest.ShoppingItem, opt => opt.Ignore())
+                    .ForMember(dest => dest.UserName, opt => opt.Ignore());
+
 
             });
             services.AddScoped<ICookeryAccountService, CookeryAccountService>();

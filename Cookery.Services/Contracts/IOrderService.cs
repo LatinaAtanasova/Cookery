@@ -10,5 +10,7 @@ namespace Cookery.Services.Contracts
         void AddOrder(Order newOrder);
 
         ICollection<Order> GetOrdersByUser(CookeryUser currentUser);
+
+        ICollection<Order> GetAllOrders();
     }
 }

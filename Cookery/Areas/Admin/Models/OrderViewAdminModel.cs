@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Cookery.Models;
 using Cookery.Web.Models.ShoppingItems;
 
-namespace Cookery.Web.Models.Order
+namespace Cookery.Web.Areas.Admin.Models
 {
-    public class OrderViewModel
+    public class OrderViewAdminModel
     {
         public int Id { get; set; }
 
@@ -17,5 +17,6 @@ namespace Cookery.Web.Models.Order
 
         public ShoppingItemViewModel ShoppingItem { get; set; }
 
+        public string UserName { get; set; }
     }
 }
