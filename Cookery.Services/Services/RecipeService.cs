@@ -40,7 +40,7 @@ namespace Cookery.Services.Services
                 .Where(x => x.isPublished == true)
                 .Include(recipe => recipe.Products)
                 .ToList();
-                
+
             return allPublishedRecipes;
         }
 
@@ -58,6 +58,45 @@ namespace Cookery.Services.Services
         {
             recipe.isPublished = newstatus;
             dbContext.SaveChanges();
+        }
+
+        public void DeleteRecipe(int id)
+        {
+            var recipe = dbContext.Recipes.FirstOrDefault(x => x.Id == id);
+
+            var recipeProducts = recipe.Products;
+            foreach (var recipeProduct in recipeProducts.ToList())
+            {
+                var products = recipeProducts.Select(x => x.Product).ToList();
+                ;
+                foreach (var product in products.ToList())
+                {
+                    dbContext.Products.Remove(product);
+                }
+            }
+            dbContext.Recipes.Remove(recipe);
+            dbContext.SaveChanges();
+        }
+
+        public void EditRecipe(Recipe recipe)
+        {
+            dbContext.SaveChanges();
+        }
+
+        public void DeleteProducts(Recipe recipe)
+        {
+            var recipeProducts = recipe.Products;
+            foreach (var recipeProduct in recipeProducts.ToList())
+            {
+                var products = recipeProducts.Select(x => x.Product).ToList();
+                ;
+                foreach (var product in products.ToList())
+                {
+                    dbContext.Products.Remove(product);
+                }
+
+                dbContext.SaveChanges();
+            }
         }
     }
 }

@@ -50,7 +50,7 @@
                                         }
                                     </div>
 
-                                    <div class="post-item-description">
+                                    @*<div class="post-item-description">
                                         @if (@Model.isPublished == false)
                                         {
                                             <div class="form-check" style="justify-content: left">
@@ -82,14 +82,13 @@
                                                 </label>
                                             </div>
                                         }
+                                    </div>*@
+                                    <div class="col-lg-12 form-group">
+                                        <button class="btn" value="Edit" name="action" type="submit" style="background-color: orange">Edit</button>
+                                        <button class="btn" value="Delete" name="action" type="submit" style="background-color: red">Delete</button>
+                                        <input type="hidden" name="Id" asp-route-id="@Model.Id" asp-for="Id" value="@Model.Id" />
 
 
-                                        <div class="col-lg-12 form-group">
-                                            <button class="btn" type="submit">Change State</button>
-                                            <input type="hidden" name="Id" asp-route-id="@Model.Id" asp-for="Id" value="@Model.Id" />
-
-
-                                        </div>
                                     </div>
                                 </form>
 

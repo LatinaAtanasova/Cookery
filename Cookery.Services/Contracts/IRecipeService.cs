@@ -16,5 +16,11 @@ namespace Cookery.Services.Contracts
         IList<Recipe> UnpublishedRecipes();
 
         void UpdatePublishStatus(Recipe recipe, bool newstatus);
+
+        void DeleteRecipe(int id);
+
+        void EditRecipe(Recipe recipe);
+
+        void DeleteProducts(Recipe recipe);
     }
 }

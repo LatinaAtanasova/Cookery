@@ -1,0 +1,188 @@
+﻿@model Cookery.Web.Models.Recipe.RecipeViewModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Layout";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 center no-padding">
+
+                <form method="post" asp-controller="Recipe" asp-action="EditRecipe" asp-area="Admin" asp-route-id="@Model.Id" class="form-transparent-grey">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Edit Recipe</h3>
+                        </div>
+
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="RecipeName" class="sr-only">Recipe Name</label>
+                            <input asp-for="RecipeName" type="text" value="@Model.RecipeName" placeholder="@Model.RecipeName" class="form-control">
+                            <span asp-validation-for="RecipeName" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="CookingTime" class="sr-only">Cooking Time</label>
+                            <input asp-for="CookingTime" type="text" value="@Model.CookingTime" placeholder="@Model.CookingTime" class="form-control">
+                            <span asp-validation-for="CookingTime" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label asp-for="Description" class="sr-only">Description</label>
+                            <textarea asp-for="Description" type="text" value="@Model.Description" placeholder="@Model.Description" class="form-control"></textarea>
+                            @*<input asp-for="Description" type="text" value="" placeholder="Username" class="form-control">*@
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        Products
+
+                        @for (int i = 0; i < @Model.Products.Count; i++)
+                        {
+                            <div class="col-lg-6 form-group">
+                                <label asp-for="Products[i].ProductName" class="sr-only">Product Name</label>
+                                <input asp-for="Products[i].ProductName" type="text" value="@Model.Products[i].ProductName" placeholder="@Model.Products[i].ProductName" class="form-control">
+                                <span asp-validation-for="Products[i].ProductName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-6 form-group">
+                                <label asp-for="Products[i].ProductUnit" class="sr-only">Product Unit</label>
+                                <input asp-for="Products[i].ProductUnit" type="text" value="@Model.Products[i].ProductUnit" placeholder="@Model.Products[i].ProductUnit" class="form-control">
+                                <span asp-validation-for="Products[i].ProductUnit" class="text-danger"></span>
+                            </div>
+
+                        }
+
+
+                        <div class="col-lg-6 form-group">
+                            <p>Please choose category:</p>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Salad" value="Salad">
+                                    <label @*class="form-check-label" *@ for="Salad" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                      font-size: 1em;
+                                      font-style: normal;
+                                      font-weight: 400;
+                                      text-transform: none;
+                                      line-height: 1.6;
+                                      letter-spacing: 0;
+                                      color: #646464">
+                                        Salad
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Meal" value="Meal">
+                                    <label @*class="form-check-label" *@ for="Meal" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                             font-size: 1em;
+                                                                                             font-style: normal;
+                                                                                             font-weight: 400;
+                                                                                             text-transform: none;
+                                                                                             line-height: 1.6;
+                                                                                             letter-spacing: 0;
+                                                                                             color: #646464">
+                                        Meal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Dessert" value="Dessert">
+                                    <label @*class="form-check-label" *@ for="Dessert" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                    font-size: 1em;
+                                                                                                                                                    font-style: normal;
+                                                                                                                                                    font-weight: 400;
+                                                                                                                                                    text-transform: none;
+                                                                                                                                                    line-height: 1.6;
+                                                                                                                                                    letter-spacing: 0;
+                                                                                                                                                    color: #646464">
+                                        Dessert
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Breakfast" value="Breakfast">
+                                    <label @*class="form-check-label" *@ for="Breakfast" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                                                                           font-size: 1em;
+                                                                                                                                                                                                           font-style: normal;
+                                                                                                                                                                                                           font-weight: 400;
+                                                                                                                                                                                                           text-transform: none;
+                                                                                                                                                                                                           line-height: 1.6;
+                                                                                                                                                                                                           letter-spacing: 0;
+                                                                                                                                                                                                           color: #646464">
+                                        Breakfast
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Appetizer" value="Appetizer">
+                                    <label @*class="form-check-label" *@ for="Appetizer" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                                                                                                                                  font-size: 1em;
+                                                                                                                                                                                                                                                                  font-style: normal;
+                                                                                                                                                                                                                                                                  font-weight: 400;
+                                                                                                                                                                                                                                                                  text-transform: none;
+                                                                                                                                                                                                                                                                  line-height: 1.6;
+                                                                                                                                                                                                                                                                  letter-spacing: 0;
+                                                                                                                                                                                                                                                                  color: #646464">
+                                        Appetizer
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input @*class="form-check-input" *@ type="radio" name="CookeryCategory" id="Drinks" value="Drinks">
+                                    <label @*class="form-check-label" *@ for="Drinks" style="font-family: Open Sans, Helvetica, Arial, sans-serif;
+                                                                                                                                                                                                                                                                                                                         font-size: 1em;
+                                                                                                                                                                                                                                                                                                                         font-style: normal;
+                                                                                                                                                                                                                                                                                                                         font-weight: 400;
+                                                                                                                                                                                                                                                                                                                         text-transform: none;
+                                                                                                                                                                                                                                                                                                                         line-height: 1.6;
+                                                                                                                                                                                                                                                                                                                         letter-spacing: 0;
+                                                                                                                                                                                                                                                                                                                         color: #646464">
+                                        Drinks
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="post-item-description">
+                            <div class="form-check" style="justify-content: left">
+                                <input @*class="form-check-input"*@ type="radio" name="isPublished" id="isPublished" value="false">
+                                <label @*class="form-check-label"*@ for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                    Not Published
+                                </label>
+                            </div>
+                            <div class="form-check" style="justify-content: left">
+                                <input @*class="form-check-input"*@ type="radio" name="isPublished" id="isPublished" value="true">
+                                <label @*class="form-check-label"*@ for="isPublished" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 1em; font-style: normal; font-weight: 400; text-transform: none; line-height: 1.6; letter-spacing: 0; color: #646464">
+                                    Published
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <button class="btn" type="submit">Edit Recipe</button>
+                            @*<button type="reset" class="btn btn-danger m-l-10">Cancel</button>*@
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@*<script src="/js/jquery.js"></script>*@
+@*<script src="/js/plugins.js"></script>*@
+
+<!--Template functions-->
+@*<script src="/js/functions.js"></script>
+
+
+    <script type="text/javascript">
+        $("#addItem").click(function () {
+            $.ajax({
+                url: this.href,
+                cache: false,
+                success: function (html) { $("#productsRows").append(html); }
+            });
+            return false;
+        });
+    </script>*@
