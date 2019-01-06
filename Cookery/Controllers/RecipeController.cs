@@ -41,6 +41,7 @@ namespace Cookery.Web.Controllers
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult CreateRecipe(RecipeViewModel model)
         {
             var modelProducts = model.Products;
